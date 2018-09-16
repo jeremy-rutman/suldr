@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0//en">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<link rel="stylesheet" type="text/css" href="The%20Samsung%20Unified%20Linux%20Driver%20Repository%20-%20Samsung%20Installer_files/suld_style.css">
+<title>The Samsung Unified Linux Driver Repository - Samsung Installer</title>
+</head>
+<body>
+<table width="80%" align="center">
+<tbody><tr>
+<td class="std" width="14%"><a href="https://www.bchemnet.com/suldr/index.html">SULDR</a></td>
+<td class="std" width="14%"><a href="https://www.bchemnet.com/suldr/forum/">Forums</a></td>
+<td class="std" width="14%"><a href="https://www.bchemnet.com/suldr/supported.html">Supported Printers</a></td>
+<td class="std" width="14%"><a href="https://www.bchemnet.com/suldr/printing.html">Printing Questions</a></td>
+<td class="std" width="14%"><a href="https://www.bchemnet.com/suldr/scanning.html">Scanning Questions</a></td>
+<td class="std" width="14%"><a href="https://www.bchemnet.com/suldr/questions.html">General Questions</a></td>
+<td class="std" width="16%"><a href="https://www.bchemnet.com/suldr/suld.html">Samsung Installer</a></td>
+</tr></tbody></table>
+
+
+<h1>Samsung Installer Information</h1>
+
+If you are planning to work with the Samsung driver directly, you should
+ usually download it directly from Samsung.  However, for those who want
+ the versions that match what I'm using in the repository and/or are 
+having trouble finding a download from Samsung that is appropriate for 
+their printer (although a different model download usually works fine), 
+you can download selected versions here:
+<ul>
+<li><a href="https://www.bchemnet.com/suldr/driver/UnifiedLinuxDriver-1.00.39.tar.gz">version 1.00.39 (driver2)</a></li>
+<li><a href="https://www.bchemnet.com/suldr/driver/UnifiedLinuxDriver-1.00.37.tar.gz">version 1.00.37 (driver2)</a> (this version not available through repository)</li>
+<li><a href="https://www.bchemnet.com/suldr/driver/UnifiedLinuxDriver-1.00.36.tar.gz">version 1.00.36 (driver2)</a></li>
+<li><a href="https://www.bchemnet.com/suldr/driver/UnifiedLinuxDriver-1.00.35.tar.gz">version 1.00.35 (driver2)</a></li>
+<li><a href="https://www.bchemnet.com/suldr/driver/UnifiedLinuxDriver-1.00.29.tar.gz">version 1.00.29 (driver2)</a></li>
+<li><a href="https://www.bchemnet.com/suldr/driver/UnifiedLinuxDriver-1.00.27.tar.gz">version 1.00.27 (driver2)</a></li>
+<li><a href="https://www.bchemnet.com/suldr/driver/UnifiedLinuxDriver-1.00.21.tar.gz">version 1.00.21 (driver2)</a></li>
+<li><a href="https://www.bchemnet.com/suldr/driver/UnifiedLinuxDriver-1.00.06.tar.gz">version 1.00.06 (driver2)</a></li>
+<li><a href="https://www.bchemnet.com/suldr/driver/UnifiedLinuxDriver-4.01.17.tar.gz">version 4.01.17</a></li>
+<li><a href="https://www.bchemnet.com/suldr/driver/UnifiedLinuxDriver-4.00.39.tar.gz">version 4.00.39</a></li>
+<li><a href="https://www.bchemnet.com/suldr/driver/UnifiedLinuxDriver-4.00.36.tar.gz">version 4.00.36</a></li>
+<li><a href="https://www.bchemnet.com/suldr/driver/UnifiedLinuxDriver-4.00.35.tar.gz">version 4.00.35</a></li>
+<li><a href="https://www.bchemnet.com/suldr/driver/UnifiedLinuxDriver-3.00.90.tar.gz">version 3.00.90</a></li>
+<li><a href="https://www.bchemnet.com/suldr/driver/UnifiedLinuxDriver-3.00.71.tar.gz">version 3.00.71</a> (this version not available through repository)</li>
+<li><a href="https://www.bchemnet.com/suldr/driver/UnifiedLinuxDriver-3.00.65.tar.gz">version 3.00.65</a></li>
+<li><a href="https://www.bchemnet.com/suldr/driver/UnifiedLinuxDriver-3.00.37.tar.gz">version 3.00.37</a></li></ul>
+If you find yourself with some need to install manually instead of using
+ the repository, please share why this is so and I will attempt to 
+modify the repository to address the problem.  (Even non-Debian users 
+can convert the packages and install them manually.)  As far as I know, 
+there is no advantage to installing directly and many disadvantages.
+<br><br>
+You are on your own if you choose to use these versions.  Samsung at 
+least nominally provides support for issues you may experience with 
+them, and there are too many variables for me to address the many 
+problems.  If you choose to install using one of these installers rather
+ than repository, you can certainly still post to the forums here for 
+help.  However, my first suggestion will always be to install using the 
+repository, which controls for and addresses many of the issues you may 
+encounter with the Samsung installer.
+
+<h2>Uninstallation Instructions</h2>
+If you want to know specific details of what files are installed or how 
+to uninstall particular versions of the driver installed the Samsung 
+way, see the page specific for the version that you downloaded and 
+installed:
+<ul><li><a href="https://www.bchemnet.com/suldr/smfpv2.html">Version 2.00.xx (very old)</a></li>
+<li><a href="https://www.bchemnet.com/suldr/smfpv3.html">Version 3.00.xx</a></li>
+<li><a href="https://www.bchemnet.com/suldr/smfpv4.html">Version 4.00.xx</a></li>
+<li><a href="https://www.bchemnet.com/suldr/smfpv401.html">Version 4.01.xx</a></li>
+<li><a href="https://www.bchemnet.com/suldr/smfp2v1.html">Version 1.00.xx (driver 2)</a></li>
+</ul>
+
+<h3>Update for Driver2 (1.00.xx)</h3>
+The problems below seem largely resolved with the new style driver 
+released by Samsung in 2013.  The only significant remaining issues are 
+that a few non-critical files (such as the ppd files) end up with 
+executable permissions, there is no uninstall routine available if the 
+original download from Samsung is deleted (the uninstall script is not 
+installed), and there are still a couple of quirks regarding how the 
+scanner system is set up in /etc/.  Otherwise, use of this repository 
+instead of the Samsung installer for that version is largely a matter of
+ preference or convenience.   The Samsung installer has no extraneous 
+libraries and places everything neatly into /opt/, with links as needed 
+from the /usr/ directories to /opt/, and uninstalls cleanly.  Most users
+ can use the 1.00.xx Samsung installer directly without need for this 
+repository.
+
+<h2>General Problems With the Samsung Installer/Uninstaller</h2>
+
+<h3>Files Left Behind</h3>
+The uninstaller can't tell if certain files should be deleted or not, and so usually leaves them in /usr/lib:
+<ul>
+<li>/usr/lib/libtiff.so.3* (provided by package libtiff3, which was replaced by libtiff4 in 2005, but is required for ImageManger)</li>
+<li>/usr/lib/libstdc++.so.5* (provided by package libstdc++5) (all versions before 4.01.xx)</li>
+<li>/usr/lib/libcups.so (symbolic link to libcups.so.2)</li>
+<li>/usr/lib/libqui.so* (provided by package libqt3-mt) (all versions before 4.00.xx)</li>
+<li>/usr/lib/libqt-mt* (provided by package libqt3-mt) (all versions before 4.00.xx)</li>
+</ul>
+
+<h3>The Installer and Uninstaller Routinely Fail</h3>
+Depending on the exact combination of Qt3 and Qt4 libraries on your 
+computer, one of several errors could occur when trying to run the 
+uninstaller that results in the inability to automatically remove the 
+driver.  This is more of a problem with the v2.00.xx and v3.00.xx 
+installers than it is for later versions.  There are also issues with 
+various installer and uninstaller versions if the path contains any 
+spaces.
+
+<h3>Inappropriate Printer Selection</h3>
+Many versions of the installer automatically install a printer, which 
+may or may not match your actual printer model.  In some cases, this 
+installed printer does not actually work and needs to removed, then your
+ actual printer configured again.
+
+<h3>Replacement of /usr/bin/lpr</h3>
+Prior to the 4.01.xx installer, the Samsung installer moves /usr/bin/lpr
+ to /usr/bin/lpr.org and writes /usr/bin/lpr as a link to 
+/opt/Samsung/mfp/bin/slpr, which (a) breaks the cups-bsd (or cupsys-bsd)
+ packages, (b) can itself be overwritten when the CUPS package is 
+updated and it writes back to /usr/bin/lpr, and (c) breaks non-graphical
+ and automated applications, because slpr requires a graphical 
+environment and user intervention.
+
+<h3>Parallel Port Interference</h3>
+The Samsung installer writes parallel port information to 
+/etc/modprobe.conf, which then blocks reading of /etc/modprobe.d/, and 
+so all blacklists or other hardware support configurations present in 
+/etc/modprobe.d/ are ignored.  In addition, computers without physical 
+parallel ports sometimes exhibit odd behavior due to this forced 
+parallel support.
+
+<h3>Inappropriate Permissions and Ownership</h3>
+Many of the files installed to /usr/lib/ end up with 777 permissions: 
+i.e., world-writable and world-executable.  Even non-executable library 
+files are given these permissions.  Other files occasionally have 
+inappropriate group ownership assigned.  The result is a possible 
+security risk to your system.  Both of these issues vary quite a bit, 
+not only with the particular installer version but even within 
+apparently identical downloads from Samsung.
+
+<h3>Apparent Unavailability for Many Printers</h3>
+Samsung has recently decreased the number of printers that they provide 
+an official driver for, even though they do in fact still support them 
+(for example, the CLP-550N no longer provides a Linux driver for 
+download at the Samsung USA site, even though it had for years prior to 
+that point and the new drivers still work).  In addition, many different
+ versions of the Linux driver are present on their site, and exactly 
+which version you get depends on which printer model you search for.
+
+<h3>Library Conflicts</h3>
+There are occasional library conflicts with modern Linux distributions, 
+although not as bad as with the v2 or earlier v3 installers.  I have 
+largely fixed these in my packages available through the repository, but
+ you may run into problems if you install directly from Samsung and are 
+using either a brand-new or somewhat older distribution version.  Known 
+potential sources of conflict if you perform a manual install include 
+libc6, qt3 libraries, libstdc++5, libnetsnmp, and libtiff.
+
+<br><br> 
+
+<table width="80%" align="center">
+<tbody><tr>
+<td class="std" width="25%"><a href="https://www.bchemnet.com/suldr/repository.html">Repository Information</a></td>
+<td class="std" width="25%"><a href="https://www.bchemnet.com/suldr/legal.html">Legal</a></td>
+<td class="std" width="25%"><a href="https://www.bchemnet.com/suldr/contact.html">Contact</a></td>
+<td class="std" width="25%"><a href="https://www.bchemnet.com/suldr/alternatives.html">Alternative Drivers</a></td>
+</tr>
+</tbody></table>
+
+
+</body></html>

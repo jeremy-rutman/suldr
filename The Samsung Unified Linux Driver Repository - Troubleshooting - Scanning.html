@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0//en">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<link rel="stylesheet" type="text/css" href="The%20Samsung%20Unified%20Linux%20Driver%20Repository%20-%20Troubleshooting%20-%20Scanning_files/suld_style.css">
+<title>The Samsung Unified Linux Driver Repository - Troubleshooting - Scanning</title>
+</head>
+<body>
+<table width="80%" align="center">
+<tbody><tr>
+<td class="std" width="14%"><a href="https://www.bchemnet.com/suldr/index.html">SULDR</a></td>
+<td class="std" width="14%"><a href="https://www.bchemnet.com/suldr/forum/">Forums</a></td>
+<td class="std" width="14%"><a href="https://www.bchemnet.com/suldr/supported.html">Supported Printers</a></td>
+<td class="std" width="14%"><a href="https://www.bchemnet.com/suldr/printing.html">Printing Questions</a></td>
+<td class="std" width="14%"><a href="https://www.bchemnet.com/suldr/scanning.html">Scanning Questions</a></td>
+<td class="std" width="14%"><a href="https://www.bchemnet.com/suldr/questions.html">General Questions</a></td>
+<td class="std" width="16%"><a href="https://www.bchemnet.com/suldr/suld.html">Samsung Installer</a></td>
+</tr>
+</tbody></table>
+
+<h1>Common Issues Specifically Related to Scanning</h1>
+
+Before trying to troubleshoot scanning, please make sure you are using the latest version of the driver <b>from the repository</b>.  For network-connected scanners, it is particularly important that the <i>suld-network-*</i>
+ package be up to date.  If you installed the driver manually, you are 
+on your own; there are too many library conflicts for scanning to be 
+reliable, and many problems specific to particular releases of the 
+driver from Samsung (such as mixing 64-bit and 32-bit installations).  
+The repository addresses most of them, and I won't provide details here 
+on how to reconstruct all of them manually (that information is 
+available in various locations on this website and in the provided 
+links.
+<br><br>
+Solutions to scanning problems depend on how the scanner is connected 
+(USB, network, or parallel) and specific details of where the 
+communication breakdown is, so the approaches below are broken down 
+accordingly.  I also highly recommend that you ensure you can print to 
+your printer before worrying about scanning; if you can't print, you are
+ almost certainly going to be unable to scan, and most of the 
+suggestions below assume you have already sorted out how to get printing
+ working.
+<br><br>
+<a href="https://www.bchemnet.com/suldr/scanning.html#0">S0. HELP!  I Updated the Packages and Now I Can't Scan!</a><br>
+<a href="https://www.bchemnet.com/suldr/scanning.html#1">S1. The Scanner of a Multifunction Printer Doesn't Work</a><br>
+<a href="https://www.bchemnet.com/suldr/scanning.html#2">S2. USB-connected Scanner Is Not Recognized by sane-find-scanner</a><br>
+<a href="https://www.bchemnet.com/suldr/scanning.html#3">S3. USB-connected Scanner Is Recognized by sane-find-scanner But Does Not Work</a><br>
+<a href="https://www.bchemnet.com/suldr/scanning.html#4">S4. Which Printer Models Work With Which Scanning Driver?</a><br>
+<a href="https://www.bchemnet.com/suldr/scanning.html#5">S5. USB-connected Scanner Is Inconsistent/Often Fails and I'm Using an Old Distribution</a><br>
+<a href="https://www.bchemnet.com/suldr/scanning.html#6">S6. Network-connected Scanner Is Not Recognized by netdiscovery (v3.00.xx to 4.01.xx)</a><br>
+<a href="https://www.bchemnet.com/suldr/scanning.html#7">S7. Parallel-connected Scanner Is Not Working</a><br>
+<a href="https://www.bchemnet.com/suldr/scanning.html#8">S8. My CJX-xxxx Printer Does Not Scan</a><br>
+<a href="https://www.bchemnet.com/suldr/scanning.html#9">S9. My Scanner Worked Until I Updated to Ubuntu 12.04</a><br>
+<a href="https://www.bchemnet.com/suldr/scanning.html#10">S10. Imagemanager Will Not Start</a><br>
+<a href="https://www.bchemnet.com/suldr/scanning.html#11">S11. Network-connected Scanner Is Not Working</a><br>
+<a href="https://www.bchemnet.com/suldr/scanning.html#12">S12. smfpnetdiscovery (driver2 v1.00.xx) Produces No Output</a><br>
+<a href="https://www.bchemnet.com/suldr/scanning.html#13">S13. USB scanner not working with USB 3.0 port</a><br>
+
+<h3 id="0">S0. HELP!  I Updated the Packages and Now I Can't Scan!</h3>
+On rare occassions, something may not go smoothly in an upgrade process.
+  You can try uninstall all your packages from this repository and then 
+reinstalling the ones you still need.  Otherwise, post to <a href="https://www.bchemnet.com/suldr/forum/">the forums</a> for help.
+
+<h3 id="1">S1. The Scanner of a Multifunction Printer Doesn't Work</h3>
+Make sure you have followed <b>all</b> the following steps, or no other fix will have any success:
+<ul><li>You have installed a <i>suld-driver-*</i> package that is listed as <a href="https://www.bchemnet.com/suldr/supported.html">supporting your printer</a>.</li>
+<li>If your printer/scanner is connected over the network, you may benefit from having one of the <i>suld-configurator-*</i> packages installed.</li>
+<li>You have added yourself to the "lp" group, for example when 
+installing the driving (you may have been prompted or silently added if 
+you were not already in the group) or by entering "sudo usermod -G lp -a
+ <your user="" name="">" in a terminal, and then logging out and back in
+ to your session (or rebooting).  (Under specific circumstances with 
+newer distributions, this is not actually required, but it almost always
+ improves success rates.)</your></li>
+<li>In some rare cases, you may also need to be a member of the "saned" group, similarly to the "lp" bit above.</li>
+<li>Have you tried to access the scanner using "sudo" or as the root 
+user?  (For example, the "superuser" version of the Configurator 
+available in your menu.)  In rare cases, this appears to be the only 
+solution.</li></ul>
+Once you have completed these steps, and if your scanner still does not 
+work, proceed to the appropriate next question.  In some cases, a 
+different <i>suld-driver-*</i> versions may help, but testing this is 
+not a strict requirement of proceeding to other solutions.  Some 
+scanners may only work with particular driver versions, although this is
+ relatively rare.
+
+<h3 id="2">S2. USB-connected Scanner Is Not Recognized by sane-find-scanner</h3>
+If you enter "sane-find-scanner" in a terminal and do not get output 
+indicating that your computer "sees" your scanner, you can try the 
+following:
+<ul><li>Install the <i>suld-scanner-usblp-fix package</i>.  This is most
+ likely to be effective if you are using CUPS 1.5.0 (Ubuntu 11.10), but 
+may also be useful for later distributions/CUPS versions.  Earlier CUPS 
+versions are highly unlikely to be improved with this fix.  Essentially,
+ this fix ("hack") works around the new blacklisting of the usblp 
+module.  The downside is that re-activating that module may interfere 
+with printing, to the same or other printers, although usually it works 
+okay.  Printers that may benefit from this approach can print, but not 
+scan.</li>
+<li>In certain older versions of Debian/Ubuntu, mainly released around 
+2009-2010, there are specific printers that benefit by temporarily 
+removing the USB 2.0 kernel module.  To test this, run "sudo modprobe -r
+ ehci_hcd" in a terminal, then try to scan.  If it works, you will need 
+to perform this command each time you wish to enable the scanner.  When 
+done scanning, run "sudo modprobe ehci_hcd" in a terminal to re-enable 
+other USB devices.</li></ul>
+
+<h3 id="3">S3. USB-connected Scanner Is Recognized by sane-find-scanner But Does Not Work</h3>
+If you enter "sane-find-scanner" in a terminal and do get output 
+indicating that your computer "sees" your scanner, but xsane or 
+"scanimage -L" or similar programs do not recognize the scanner, you can
+ try the following:
+<ul><li>Ensure your printer/scanner is connected to a main (usually 
+powered) USB port, not a hub or secondary port.  This is most often a 
+problem with external hubs or monitor ports, but occasionally it happens
+ even when connecting directly to a computer.  If this is the problem, 
+printing will usually work fine, but scanning will fail.</li>
+<li>Ensure that libusb-0.1 is installed (automatic if using repository, 
+but otherwise may not be by default on modern distributions).</li>
+<li>You can try the <i>suld-scanner-usblp-fix</i>, described in the previous question, but it will only work in rare cases, even if you apparently meet all the criterea.</li>
+<li>You can try to apply the Xerox backend fix for a printer not covered
+ by the package, using the information output from sane-find-scanner.  
+To do this, take the "ID" value output from sane-find-scanner, which 
+will be something like 04e8:####.  Add the following line to the end of 
+/etc/sane.d/xerox_mfp-smfp.conf (without quotes): "usb 0x04e8 0x####", 
+replacing #### (and 04e8 if needed) with the actual values.  Then add 
+the following to the file /etc/udev/rules.d/99-libsane-samsungmfp.rules:<br><br>
+ACTION!="add", GOTO="label_end"<br>
+SUBSYSTEM!="usb_device", GOTO="label_end"<br>
+ATTRS{idVendor}=="04e8", ATTRS{idProduct}=="####", ENV{libsane_matched}="yes"<br>
+LABEL="label_end"<br>
+<br>
+Changing #### (and 04e8 if needed) to the appropriate values again.<br>  Note that you will need to have the <i>suld-driver-common-*</i>
+ package installed, or else create the indicated files manually.  That 
+package already includes support for all printers marked with "Xerox 
+MFP" (without a "*") on the <a href="https://www.bchemnet.com/suldr/supported.html">supported printers list</a>.  Models with the "*" may work if manually applied.  Other models without any indication may also work, but probably won't.</li>
+<li>With Ubuntu 11.10 and 12.04, and possibly other distributions, there
+ have been scattered, inconsistent reports of problems with the USB 
+subsystem.  This is not specific to Samsung.  In some cases, devices 
+work when plugged into a USB 2.0 port but not a USB 3.0 port; in other 
+cases, unplugging other USB devices may enable the scanner.  If you 
+encounter issues of this type, you should file a bug report with your 
+distribution.</li></ul>
+
+<h3 id="4">S4. Which Printer Models Work With Which Scanning Driver?</h3>
+<a href="https://www.bchemnet.com/suldr/supported.html">Click here</a> 
+for supported models.  Most supported USB models work through standard 
+libsane libraries and utility varies with the libsane version; you can 
+get updated information <a href="http://www.sane-project.org/sane-mfgs.html#Z-SAMSUNG">here</a> and <a href="http://www.sane-project.org/cgi-bin/driver.pl">here if you search for "samsung"</a>.
+  Some additional printers appear to be supported by foomatic to varying
+ degrees.  This is erratic, version-dependent, and sometimes breaks 
+later.  Additional support cannot easily be forced, but you can try the 
+previous the answer to the previous question.
+
+<h3 id="5">S5. USB-connected Scanner Is Inconsistent/Often Fails and I'm Using an Old Distribution</h3>
+Occasionally and only in distributions released prior to 2008 (Debian 
+4.x (Etch), Ubuntu 7.10 (Feisty) and earlier), the USB support will be 
+quirky or broken using these packages.  I don't know why this is, but 
+there isn't a good solution due to limitations in the way the Samsung 
+drivers themselves work.  Your best bet is to update your distribution. 
+ Most of the above solutions are only available with newer distribution 
+releases.  Although less common, distributions released prior to 2010 
+also are often best dealt with simply by updating the whole system, as 
+several kernel versions between 2.6.33 and 3.0 seemed to have problems 
+with CONFIG_USB_DEVICES="n" being set during compilation, but effects 
+are highly erratic, and better work-arounds usually exist if you have 
+more recent system libraries installed.  One potentially useful approach
+ that may still of interest is described <a href="https://bugs.launchpad.net/ubuntu/+source/linux/+bug/488274/comments/10">here</a> and with more details and a script <a href="http://ubuntuforums.org/showthread.php?p=9018954&amp;postcount=434">here</a>.
+
+<h3 id="6">S6. Network-connected Scanner Is Not Recognized by netdiscovery (driver 3.00.xx to 4.01.xx)</h3>
+First, make sure that you are using the most recent version of the <i>suld-network-1</i> or <i>suld-network-2</i>
+ package.  Second, run the following command in a terminal: 
+"/opt/Samsung/mfp/bin/netdiscovery --all --scanner".  If it reports a 
+scanner found and the model matches yours, then you should be ready to 
+go; if not, post to the <a href="https://www.bchemnet.com/suldr/forum/">forums</a>.
+  On the other hand, if 0 scanners are found (in recent versions, only 
+the line "# DEBUG: Network printers discovery utility" will appear) or 
+the model is incorrect, you need to consider the following:
+<ul><li>Do you have a firewall running?  You need to allow incoming UDP 
+packets from the printer, on all ports.  Configure this through whatever
+ firewall interface you are using.</li>
+<li>In some cases, the netdiscovery broadcast fails.  To test this, run 
+"/opt/Samsung/mfp/bin/netdiscovery -s --snmp" and see if snmp_send fails
+ as network unreachable.  If so, read the solution and details described
+ in <a href="http://ubuntuforums.org/showthread.php?p=11322969&amp;postcount=800">rlar's post</a>.</li>
+<li>Network scanning requires that your computer be on the same IPv4 
+local area network as the printer (same network segment, so that the all
+ the "x"s in x.x.x.??? are the same for your computer and the scanner 
+and there are not multiple routers between the two).  <a href="http://www.bchemnet.com/suldr/forum/index.php?topic=35.msg140#msg140">There is a work-around for this issue</a> which is derived from <a href="http://ubuntuforums.org/showthread.php?p=10482031&amp;postcount=656">here</a> and <a href="http://ubuntuforums.org/showthread.php?p=10482037&amp;postcount=657">here</a>.</li>
+</ul>
+
+<h3 id="7">S7. Parallel-connected Scanner Is Not Working</h3>
+Good luck.  I suggest updating to a newer model printer.
+
+<h3 id="8">S8. My CJX-xxxx Printer Does Not Scan</h3>
+I am not aware of any method for supporting this printer, but have very limited information.
+
+<h3 id="9">S9. My Scanner Worked Until I Updated to Ubuntu 12.04</h3>
+There appears to be some subtle conflict with some (many?) printers and 
+the Qt4 libraries if you scan using the Configurator interface (or 
+smfpscan directly).  Until I have time to track down the actual problem 
+and possibly identify a solution, a simple fix is to install <i>suld-configurator-*-qt3</i> instead of the default <i>suld-configurator-*-qt4</i>.  The interface isn't as pretty, but otherwise it works the same (and it works with scanning under Ubuntu 12.04).
+
+<h3 id="10">S10. Imagemanager Will Not Start</h3>
+Newer releases of the Qt4 Imagemanager must be given a valid image file 
+as a command parameter when starting.  After that it works fine.  This 
+will be observed in the <i>suld-configurator-2-qt4</i> package but not in other versions.
+
+<h3 id="11">S11. Network-connected Scanner Is Not Working</h3>
+In some cases, network connected scanners using the Xerox MFP backend 
+may benefit from replacing USB information in /etc/sane.d/xerox_mfp.conf
+ with the IP address of the printer.  See <a href="http://www.bchemnet.com/suldr/forum/index.php?topic=9.msg329#msg329">this post</a>
+ for the (little) available information.  At least with driver2 
+versions, setting SANE_DEFAULT_DEVICE to 'smfp:net;xxx.xxx.xxx.xxx' 
+where xxx.xxx.xxx.xxx is the IP address of your printer can solve 
+problems with multiple network interfaces causing detection problems.  
+See <a href="http://www.bchemnet.com/suldr/forum/index.php?topic=19.msg939#msg939">this post</a> for additional information regarding setting up xerox_mfp.conf for some printers.
+
+<h3 id="12">S12. smfpnetdiscovery (driver2 v1.00.xx) Produces No Output</h3>
+This appears to be its normal mode.  Unlike the older netdiscovery, 
+smfpnetdiscovery does not seem to produce any human-readable output, 
+whether or not the printer is detected.
+
+<h3 id="13">S13. USB scanner not working with USB 3.0 port</h3>
+A SANE update (1.00.27, Ubuntu 17.10 or later) may require enabling an 
+environment variable to allow a USB 2.0 printer/scanner to work on a USB
+ 3.0 port.  See <a href="http://www.bchemnet.com/suldr/forum/index.php?topic=330.new">this forum topic</a>.
+
+<br><br>
+<table width="80%" align="center">
+<tbody><tr>
+<td class="std" width="25%"><a href="https://www.bchemnet.com/suldr/repository.html">Repository Information</a></td>
+<td class="std" width="25%"><a href="https://www.bchemnet.com/suldr/legal.html">Legal</a></td>
+<td class="std" width="25%"><a href="https://www.bchemnet.com/suldr/contact.html">Contact</a></td>
+<td class="std" width="25%"><a href="https://www.bchemnet.com/suldr/alternatives.html">Alternative Drivers</a></td>
+</tr>
+</tbody></table>
+
+
+</body></html>

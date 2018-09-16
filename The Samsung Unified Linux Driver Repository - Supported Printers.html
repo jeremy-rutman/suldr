@@ -1,0 +1,307 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0//en">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<link rel="stylesheet" type="text/css" href="The%20Samsung%20Unified%20Linux%20Driver%20Repository%20-%20Supported%20Printers_files/suld_style.css">
+<title>The Samsung Unified Linux Driver Repository - Supported Printers</title>
+</head>
+<body>
+<table width="80%" align="center">
+<tbody><tr>
+<td class="std" width="14%"><a href="https://www.bchemnet.com/suldr/index.html">SULDR</a></td>
+<td class="std" width="14%"><a href="https://www.bchemnet.com/suldr/forum/">Forums</a></td>
+<td class="std" width="14%"><a href="https://www.bchemnet.com/suldr/supported.html">Supported Printers</a></td>
+<td class="std" width="14%"><a href="https://www.bchemnet.com/suldr/printing.html">Printing Questions</a></td>
+<td class="std" width="14%"><a href="https://www.bchemnet.com/suldr/scanning.html">Scanning Questions</a></td>
+<td class="std" width="14%"><a href="https://www.bchemnet.com/suldr/questions.html">General Questions</a></td>
+<td class="std" width="16%"><a href="https://www.bchemnet.com/suldr/suld.html">Samsung Installer</a></td>
+</tr>
+</tbody></table>
+
+<h1>Supported Printer Models</h1>
+
+The tables below indicate the minimum (lowest) and maximum (highest) 
+versions of the driver that support each printer.  If a maximum version 
+is not specified, then everything equal to or above the minimum version 
+supports the model.  This also means that even if no "driver2" is 
+indicated by the minimum version, it is still supported by driver2 
+unless the maximum version given indicates otherwise.  If 2 minimum 
+versions are present, the higher of the two reflects the last time an 
+update to the driver likely affected support for the model (i.e., the 
+lower minimum version may have bugs, or bugs may have been introduced 
+later that were fixed in the second version given).  For printers with 2
+ versions listed, there may have been additional updates between the 
+listed versions.<br><br>
+
+Important caveats:
+<ul>
+<li>Printer models exclude the terminal letter codes (N, W, DN, etc.), 
+because in general the differences do not matter for this purpose.</li>
+<li>"Supported" simply means that the model exists in the ppd database 
+or is configured for scanning; it is entirely possible that a particular
+ "supported" version will still fail due to bugs in the driver, 
+incompatibility with system libraries, or the current weather.  Equally,
+ in some cases "non-supported" models may actually work.</li>
+<li>The min and max versions are based on the ones available in the 
+repository.  I do not package all versions of the driver, due to severe 
+bugs or security issues with some releases, or simply no significant 
+differences from packaged versions.</li>
+<li>The scanning support column is a "-" if no scanner exists on the 
+model, is blank if scanning support is unknown and/or unsupported, and 
+has some text indicating which method(s) support the scanner.  Samsung 
+MFP requires installing the driver.  Xerox MFP is standard libsane 
+support, although you likely need either a fairly recent libsane (e.g., 
+1.0.22 or newer) or <i>suld-driver-common-*</i> installed (or maybe both).</li>
+<li>While these tables are as accurate as I could make them within time constraints, there's a lot of guesswork involved.
+</li></ul>
+If a particular driver version is listed as supporting your model but 
+does not actually work, try the links to the questions at the top of 
+this page.  To install the appropriate version of the driver, select the
+ <i>suld-driver-*</i> or <i>suld-driver2-*</i> package with the matching number (e.g., <i>suld-driver-4.00.39</i> or <i>suld-driver2-1.00.29</i>).
+<br><br>
+The Samsung CJX-xxx printers <a href="https://www.bchemnet.com/suldr/printing.html#10">are not supported by this driver</a>, but many non-Samsung printers are (see the last table).
+<br><br>
+
+<h3>Color Laser Printers, not multifunction (CLP-, C (Xpress, sometimes with SL- prefix))</h3>
+<table cellpadding="2" border="1">
+<tbody><tr><td>Printer(s)</td><td>PPD<br>(Printer Series)</td><td>Minimum Version</td><td>Maximum Version</td><td>Scanning Support</td></tr>
+<tr><td>C410</td><td>C410</td><td>1.00.06 (driver2)<br>1.00.36 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>C420</td><td>C420</td><td>1.00.29 (driver2)<br>1.00.36 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>C430</td><td>C43x</td><td>1.00.35 (driver2)<br>1.00.36 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>C1404</td><td>C140x</td><td>1.00.27 (driver2)<br>1.00.36 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>C1453</td><td>C145x</td><td>1.00.27 (driver2)<br>1.00.36 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>C1810</td><td>C1810</td><td>1.00.21 (driver2)<br>1.00.36 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>C1860</td><td>C1860</td><td>1.00.21 (driver2)<br>1.00.36 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>C2620</td><td>C2620</td><td>1.00.27 (driver2)<br>1.00.39 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>C4010<br>C4012</td><td>C401x</td><td>1.00.39 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>CLP-300</td><td>CLP-300</td><td>3.00.37</td><td>4.00.39</td><td>-</td></tr>
+<tr><td>CLP-310<br>CLP-315</td><td>CLP-310</td><td>3.00.37<br>1.00.36 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>CLP-320<br>CLP-325</td><td>CLP-320</td><td>3.00.90<br>1.00.36 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>CLP-340</td><td>CLP-340</td><td>3.00.65<br>4.01.17</td><td></td><td>-</td></tr>
+<tr><td>CLP-350</td><td>CLP-350</td><td>3.00.37<br>1.00.35 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>CLP-360<br>CLP-365</td><td>CLP-360</td><td>4.00.39<br>1.00.36 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>CLP-415</td><td>CLP-410</td><td>4.00.36<br>1.00.36 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>CLP-500</td><td>CLP-500</td><td>3.00.37</td><td>4.00.39</td><td>-</td></tr>
+<tr><td>CLP-510</td><td>CLP-510</td><td>3.00.37</td><td>4.00.39</td><td>-</td></tr>
+<tr><td>CLP-550</td><td>CLP-550</td><td>3.00.37</td><td>4.00.39</td><td>-</td></tr>
+<tr><td>CLP-600</td><td>CLP-600</td><td>3.00.37</td><td>4.00.39</td><td>-</td></tr>
+<tr><td>CLP-610</td><td>CLP-610</td><td>3.00.37<br>1.00.36 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>CLP-620</td><td>CLP-620</td><td>3.00.65<br>1.00.36 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>CLP-650</td><td>CLP-650</td><td>3.00.37</td><td>4.00.39</td><td>-</td></tr>
+<tr><td>CLP-660</td><td>CLP-660</td><td>3.00.37<br>1.00.35 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>CLP-670</td><td>CLP-670</td><td>3.00.65<br>1.00.35 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>CLP-680</td><td>CLP-680</td><td>4.00.36<br>1.00.36 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>CLP-770</td><td>CLP-770</td><td>3.00.37<br>1.00.35 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>CLP-775</td><td>CLP-775</td><td>3.00.90<br>1.00.36 (driver2)</td><td></td><td>-</td></tr>
+</tbody></table>
+<h3>Color Laser Printers, multifunction (CLX-, C (Xpress, sometimes with SL- prefix))</h3>
+<table cellpadding="2" border="1">
+<tbody><tr><td>Printer(s)</td><td>PPD<br>(Printer Series)</td><td>Minimum Version</td><td>Maximum Version</td><td>Scanning Support</td></tr>
+<tr><td>C460</td><td>C460</td><td>1.00.06 (driver2)<br>1.00.36 (driver2)</td><td></td><td></td></tr>
+<tr><td>C470</td><td>C470</td><td>1.00.29 (driver2)<br>1.00.36 (driver2)</td><td></td><td></td></tr>
+<tr><td>C480</td><td>C48x</td><td>1.00.35 (driver2)<br>1.00.36 (driver2)</td><td></td><td></td></tr>
+<tr><td>C2670</td><td>C2670</td><td>1.00.27 (driver2)<br>1.00.39 (driver2)</td><td></td><td></td></tr>
+<tr><td>C2680</td><td>C268x</td><td>1.00.36 (driver2)<br>1.00.39 (driver2)</td><td></td><td></td></tr>
+<tr><td>C3010</td><td>C3010</td><td>1.00.37 (driver2)<br>1.00.39 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>C3060</td><td>C3060</td><td>1.00.37 (driver2)<br>1.00.39 (driver2)</td><td></td><td></td></tr>
+<tr><td>C3510 (?)</td><td>C351x</td><td>1.00.39 (driver2)</td><td></td><td></td></tr>
+<tr><td>C4060<br>C4062</td><td>C406x</td><td>1.00.39 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>C4820</td><td>C4820</td><td>1.00.06 (driver2)<br>1.00.39 (driver2)</td><td></td><td></td></tr>
+<tr><td>CLX-2160</td><td>CLX-216x</td><td>3.00.37<br>4.00.36</td><td></td><td>Samsung MFP<br>Xerox MFP</td></tr>
+<tr><td>CLX-3160</td><td>CLX-3160</td><td>3.00.37<br>3.00.90</td><td></td><td>Samsung MFP</td></tr>
+<tr><td>CLX-3170<br>CLX-3175</td><td>CLX-3170</td><td>3.00.37<br>1.00.36 (driver2)</td><td></td><td>Samsung MFP<br>Xerox MFP</td></tr>
+<tr><td>CLX-3185</td><td>CLX-3180</td><td>3.00.65<br>1.00.36 (driver2)</td><td></td><td>Samsung MFP<br>Xerox MFP</td></tr>
+<tr><td>CLX-3240</td><td>CLX-3240</td><td>3.00.65</td><td>4.00.39</td><td></td></tr>
+<tr><td>CLX-3300<br>CLX-3305</td><td>CLX-3300</td><td>4.00.36<br>1.00.36 (driver2)</td><td></td><td>Xerox MFP</td></tr>
+<tr><td>CLX-4195</td><td>CLX-4190</td><td>4.00.36<br>1.00.36 (driver2)</td><td></td><td></td></tr>
+<tr><td>CLX-6200<br>CLX-6210</td><td>CLX-6200</td><td>3.00.37<br>1.00.35 (driver2)</td><td></td><td>Samsung MFP</td></tr>
+<tr><td>CLX-6220</td><td>CLX-6220</td><td>3.00.65<br>1.00.35 (driver2)</td><td></td><td>Samsung MFP</td></tr>
+<tr><td>CLX-6240</td><td>CLX-6240</td><td>3.00.37<br>1.00.35 (driver2)</td><td></td><td>Samsung MFP</td></tr>
+<tr><td>CLX-6250</td><td>CLX-6250</td><td>3.00.65<br>1.00.35 (driver2)</td><td></td><td></td></tr>
+<tr><td>CLX-6260</td><td>CLX-6260</td><td>4.00.36<br>1.00.39 (driver2)</td><td></td><td></td></tr>
+<tr><td>CLX-8380</td><td>CLX-8380</td><td>3.00.37<br>1.00.35 (driver2)</td><td></td><td>Samsung MFP</td></tr>
+<tr><td>CLX-8385</td><td>CLX-8385</td><td>3.00.65<br>1.00.35 (driver2)</td><td></td><td></td></tr>
+<tr><td>CLX-8385X</td><td>CLX-8385X</td><td>3.00.90<br>1.00.35 (driver2)</td><td></td><td></td></tr>
+<tr><td>CLX-8540</td><td>CLX-8540</td><td>3.00.37<br>1.00.35 (driver2)</td><td></td><td></td></tr>
+<tr><td>CLX-8640<br>CLX-8650</td><td>CLX-8640</td><td>4.00.36<br>1.00.39 (driver2)</td><td></td><td></td></tr>
+<tr><td>CLX-9201<br>CLX-9251<br>CLX-9301</td><td>CLX-92x1</td><td>4.00.36<br>1.00.39 (driver2)</td><td></td><td></td></tr>
+<tr><td>CLX-9250<br>CLX-9350</td><td>CLX-9250</td><td>3.00.65<br>1.00.35 (driver2)</td><td></td><td></td></tr>
+<tr><td>CLX-9252<br>CLX-9352</td><td>CLX-9252</td><td>4.00.36<br>1.00.39 (driver2)</td><td></td><td></td></tr>
+<tr><td>CLX-9811<br>CLX-9812<br>CLX-9813</td><td>CLX-981x</td><td>4.01.17<br>1.00.39 (driver2)</td><td></td><td></td></tr>
+<tr><td>CLX-9821<br>CLX-9822</td><td>CLX-982x</td><td>4.01.17<br>1.00.39 (driver2)</td><td></td><td></td></tr>
+<tr><td>X401</td><td>X401</td><td>1.00.27 (driver2)<br>1.00.39 (driver2)</td><td></td><td></td></tr>
+<tr><td>X703</td><td>X703</td><td>1.00.36 (driver2)<br>1.00.39 (driver2)</td><td></td><td></td></tr>
+<tr><td>X3220</td><td>X3220</td><td>1.00.36 (driver2)<br>1.00.39 (driver2)</td><td></td><td></td></tr>
+<tr><td>X4300</td><td>X4300</td><td>1.00.21 (driver2)<br>1.00.39 (driver2)</td><td></td><td></td></tr>
+<tr><td>X7600</td><td>X7600</td><td>1.00.27 (driver2)<br>1.00.39 (driver2)</td><td></td><td></td></tr>
+</tbody></table>
+<h3>Monochrome Laser Printers, not multifunction (ML-, M (Xpress))</h3>
+<table cellpadding="2" border="1">
+<tbody><tr><td>Printer(s)</td><td>PPD<br>(Printer Series)</td><td>Minimum Version</td><td>Maximum Version</td><td>Scanning Support</td></tr>
+<tr><td>M2020<br>M2022<br>M2026</td><td>M2020</td><td>1.00.06 (driver2)<br>1.00.36 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>M2625<br>M2825</td><td>M262x</td><td>4.01.17<br>1.00.36 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>M2835</td><td>M283x</td><td>1.00.21 (driver2)<br>1.00.36 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>M3015</td><td>M301x</td><td>1.00.36 (driver2)<br>1.00.37 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>M3820<br>M3825</td><td>M332x</td><td>4.01.17<br>1.00.36 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>M4020<br>M4030</td><td>M403x</td><td>1.00.35 (driver2)<br>1.00.39 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>M4530</td><td>M453x</td><td>1.00.29 (driver2)<br>1.00.39 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>ML-1450<br>ML-1451</td><td>ML-1450</td><td>3.00.37</td><td>4.00.39</td><td>-</td></tr>
+<tr><td>ML-1510</td><td>ML-1510</td><td>3.00.37</td><td>4.00.39</td><td>-</td></tr>
+<tr><td>ML-1520</td><td>ML-1520</td><td>3.00.37</td><td></td><td>-</td></tr>
+<tr><td>ML-1610<br>ML-1615<br>ML-1620<br>ML-1625</td><td>ML-1610</td><td>3.00.37</td><td></td><td>-</td></tr>
+<tr><td>ML-1630</td><td>ML-1630<br>ML-1630W</td><td>3.00.37</td><td></td><td>-</td></tr>
+<tr><td>ML-1640</td><td>ML-1640</td><td>3.00.37<br>3.00.65</td><td></td><td>-</td></tr>
+<tr><td>ML-1660<br>ML-1661<br>ML-1665</td><td>ML-1660</td><td>3.00.65<br>3.00.90</td><td></td><td>-</td></tr>
+<tr><td>ML-1670<br>ML-1672<br>ML-1674<br>ML-1675</td><td>ML-1670</td><td>3.00.90<br>1.00.27 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>ML-1710</td><td>ML-1710</td><td>3.00.37</td><td></td><td>-</td></tr>
+<tr><td>ML-1740</td><td>ML-1740</td><td>3.00.37</td><td></td><td>-</td></tr>
+<tr><td>ML-1750<br>ML-1755</td><td>ML-1750</td><td>3.00.37</td><td>4.00.39</td><td>-</td></tr>
+<tr><td>ML-1860<br>ML-1865</td><td>ML-1860<br>ML-1865W</td><td>3.00.90<br>1.00.27 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>ML-1910<br>ML-1915</td><td>ML-191x</td><td>3.00.65</td><td></td><td>-</td></tr>
+<tr><td>ML-2010<br>ML-2015</td><td>ML-2010</td><td>3.00.37<br>1.00.21 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>ML-2150<br>ML-2151<br>ML-2152<br>ML-2155</td><td>ML-2150<br>ML-2150_SPL</td><td>3.00.37<br>1.00.35 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>ML-2160<br>ML-2162<br>ML-2164<br>ML-2165<br>ML-2168</td><td>ML-2160</td><td>3.00.90<br>1.00.36 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>ML-2240</td><td>ML-2240</td><td>3.00.37<br>3.00.65</td><td></td><td>-</td></tr>
+<tr><td>ML-2245</td><td>ML-2245</td><td>3.00.37<br>3.00.65</td><td></td><td>-</td></tr>
+<tr><td>ML-2250<br>ML-2251<br>ML-2252<br>ML-2255</td><td>ML-2250</td><td>3.00.37</td><td></td><td>-</td></tr>
+<tr><td>ML-2510</td><td>ML-2510</td><td>3.00.37</td><td></td><td>-</td></tr>
+<tr><td>ML-2525</td><td>ML-2525W</td><td>3.00.65</td><td></td><td>-</td></tr>
+<tr><td>ML-2540<br>ML-2545</td><td>ML-2540</td><td>4.00.35<br>1.00.36 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>ML-2550<br>ML-2551<br>ML-2552</td><td>ML-2550<br>ML-2550S<br>ML-2550S_SPL</td><td>3.00.37<br>1.00.35 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>ML-2560</td><td>ML-2560</td><td>3.00.37</td><td>4.01.17</td><td>-</td></tr>
+<tr><td>ML-2570<br>ML-2571</td><td>ML-2570</td><td>3.00.37<br>1.00.35 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>ML-2580</td><td>ML-2580</td><td>3.00.65<br>1.00.35 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>ML-2851</td><td>ML-2850</td><td>3.00.37</td><td></td><td>-</td></tr>
+<tr><td>ML-2853</td><td>ML-2853</td><td>3.00.90<br>1.00.35 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>ML-2855</td><td>ML-2855</td><td>3.00.37<br>1.00.35 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>ML-2950<br>ML-2955</td><td>ML-2950</td><td>3.00.90<br>1.00.36 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>ML-3050<br>ML-3051</td><td>ML-3050</td><td>3.00.37<br>3.00.90</td><td></td><td>-</td></tr>
+<tr><td>ML-3300</td><td>ML-3300</td><td>3.00.90</td><td></td><td>-</td></tr>
+<tr><td>ML-3310<br>ML-3312</td><td>ML-331x</td><td>3.00.90</td><td></td><td>-</td></tr>
+<tr><td>ML-3470<br>ML-3471</td><td>ML-3470</td><td>3.00.37<br>1.00.35 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>ML-3475</td><td>ML-3475</td><td>3.00.90<br>1.00.35 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>ML-3560<br>ML-3561</td><td>ML-3560</td><td>3.00.37</td><td></td><td>-</td></tr>
+<tr><td>ML-3710</td><td>ML-371x</td><td>3.00.90<br>1.00.39 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>ML-3750</td><td>ML-375x</td><td>4.00.36<br>1.00.39 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>ML-4050</td><td>ML-4050<br>ML-4050DMV</td><td>3.00.37<br>1.00.35 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>ML-4055</td><td>ML-4055</td><td>3.00.90<br>1.00.35 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>ML-4510<br>ML-5010</td><td>ML-451x</td><td>3.00.90<br>1.00.39 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>ML-4551</td><td>ML-4550</td><td>3.00.37<br>1.00.35 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>ML-4555</td><td>ML-4555</td><td>3.00.90<br>1.00.35 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>ML-5512<br>ML-5515<br>ML-6512<br>ML-6515</td><td>ML-551x</td><td>3.00.90<br>1.00.39 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>ML-6060</td><td>ML-6060</td><td>3.00.37</td><td></td><td>-</td></tr>
+<tr><td>ML-7300</td><td>ML-7300</td><td>3.00.37</td><td>4.00.39</td><td>-</td></tr>
+<tr><td>ML-8000<br>ML-8100<br>ML-8200<br>ML-8300<br>ML-8400<br>ML-8600<br>ML-8700<br>ML-8800<br>ML-8900</td><td>ML-8x00</td><td>3.00.37<br>1.00.35 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>ML-8850<br>ML-8950</td><td>ML-8850</td><td>3.00.90<br>1.00.35 (driver2)</td><td></td><td>-</td></tr>
+</tbody></table>
+<h3>Monochrome Laser Printers, multifunction (MFP-, SCX-, SF-, M &amp; K &amp; X (SL-, Xpress, ProXpress))</h3>
+<table cellpadding="2" border="1">
+<tbody><tr><td>Printer(s)</td><td>PPD<br>(Printer Series)</td><td>Minimum Version</td><td>Maximum Version</td><td>Scanning Support</td></tr>
+<tr><td>K302</td><td>K302</td><td>1.00.39 (driver2)</td><td></td><td></td></tr>
+<tr><td>K401</td><td>K401</td><td>1.00.27 (driver2)<br>1.00.39 (driver2)</td><td></td><td></td></tr>
+<tr><td>K703</td><td>K703</td><td>1.00.36 (driver2)<br>1.00.39 (driver2)</td><td></td><td></td></tr>
+<tr><td>K2200</td><td>K2200</td><td>1.00.21 (driver2)<br>1.00.36 (driver2)</td><td></td><td></td></tr>
+<tr><td>K3250</td><td>K3250</td><td>1.00.36 (driver2)<br>1.00.39 (driver2)</td><td></td><td></td></tr>
+<tr><td>K4350</td><td>K4350</td><td>1.00.21 (driver2)<br>1.00.39 (driver2)</td><td></td><td></td></tr>
+<tr><td>K7600</td><td>K7600</td><td>1.00.27 (driver2)<br>1.00.39 (driver2)</td><td></td><td></td></tr>
+<tr><td>M2070</td><td>M2070</td><td>1.00.06 (driver2)<br>1.00.36 (driver2)</td><td></td><td></td></tr>
+<tr><td>M2675<br>M2875</td><td>M267x</td><td>4.01.17<br>1.00.36 (driver2)</td><td></td><td></td></tr>
+<tr><td>M2885</td><td>M288x</td><td>1.00.21 (driver2)<br>1.00.36 (driver2)</td><td></td><td></td></tr>
+<tr><td>M3065</td><td>M306x</td><td>1.00.36 (driver2)<br>1.00.37 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>M3320</td><td>M332x</td><td>4.01.17<br>1.00.39 (driver2)</td><td></td><td></td></tr>
+<tr><td>M3370<br>M3870<br>M4070</td><td>M337x</td><td>4.01.17<br>1.00.39 (driver2)</td><td></td><td></td></tr>
+<tr><td>M4080</td><td>M408x</td><td>1.00.35 (driver2)<br>1.00.39 (driver2)</td><td></td><td></td></tr>
+<tr><td>M4370<br>M5370</td><td>M4370_5370</td><td>1.00.06 (driver2)<br>1.00.39 (driver2)</td><td></td><td></td></tr>
+<tr><td>M4580</td><td>M458x</td><td>1.00.21 (driver2)<br>1.00.39 (driver2)</td><td></td><td></td></tr>
+<tr><td>M5270</td><td>M5270</td><td>1.00.27 (driver2)<br>1.00.39 (driver2)</td><td></td><td></td></tr>
+<tr><td>M5360</td><td>C536x</td><td>1.00.39 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>MFP-560<br>MFP-565</td><td>MFP-560</td><td>3.00.37</td><td></td><td>Samsung MFP</td></tr>
+<tr><td>MFP-650</td><td>MFP-65x</td><td>3.00.65<br>4.00.36</td><td></td><td>Samsung MFP</td></tr>
+<tr><td>MFP-750</td><td>MFP-750</td><td>3.00.37</td><td></td><td>Samsung MFP</td></tr>
+<tr><td>SCX-3200<br>SCX-3205</td><td>SCX-3200</td><td>3.00.90</td><td></td><td>Xerox MFP</td></tr>
+<tr><td>SCX-3300<br>SCX-3305</td><td>SCX-3300</td><td>3.00.90</td><td>4.00.39</td><td></td></tr>
+<tr><td>SCX-3400<br>SCX-3405</td><td>SCX-3400</td><td>3.00.90<br>1.00.36 (driver2)</td><td></td><td>Xerox MFP</td></tr>
+<tr><td>SCX-4016<br>SCX-4116<br>SCX-4216</td><td>SCX-4x16</td><td>3.00.37</td><td></td><td>Samsung MFP<br>Xerox MFP</td></tr>
+<tr><td>SCX-4100<br>SCX-4150</td><td>SCX-4100</td><td>3.00.37</td><td></td><td>Samsung MFP<br>Xerox MFP</td></tr>
+<tr><td>SCX-4200</td><td>SCX-4200</td><td>3.00.37</td><td></td><td>Samsung MFP<br>Xerox MFP</td></tr>
+<tr><td>SCX-4300</td><td>SCX-4300</td><td>3.00.37<br>4.00.36</td><td></td><td>Samsung MFP<br>Xerox MFP</td></tr>
+<tr><td>SCX-4321<br>SCX-4521</td><td>SCX-4x21</td><td>3.00.37</td><td></td><td>Samsung MFP<br>Xerox MFP</td></tr>
+<tr><td>SCX-4500</td><td>SCX-4500<br>SCX-4500W</td><td>3.00.37<br>4.00.36</td><td></td><td>Samsung MFP<br>Xerox MFP</td></tr>
+<tr><td>SCX-4520<br>SCX-4720<br>SCX-4920</td><td>SCX-4x20</td><td>3.00.37</td><td></td><td>Samsung MFP</td></tr>
+<tr><td>SCX-4600</td><td>SCX-4600</td><td>3.00.65<br>4.00.36</td><td></td><td>Samsung MFP<br>Xerox MFP</td></tr>
+<tr><td>SCX-4623</td><td>SCX-4623<br>SCX-4623FW</td><td>3.00.65<br>4.00.36</td><td></td><td>Samsung MFP<br>Xerox MFP</td></tr>
+<tr><td>SCX-4655</td><td>SCX-4650</td><td>4.00.36<br>1.00.36 (driver2)</td><td></td><td></td></tr>
+<tr><td>SCX-4705</td><td>SCX-470x</td><td>4.00.36<br>1.00.36 (driver2)</td><td></td><td></td></tr>
+<tr><td>SCX-4725</td><td>SCX-4725</td><td>3.00.37<br>1.00.36 (driver2)</td><td></td><td>Samsung MFP<br>Xerox MFP</td></tr>
+<tr><td>SCX-4726<br>SCX-4727<br>SCX-4728<br>SCX-4729</td><td>SCX-472x</td><td>4.00.35<br>1.00.35 (driver2)</td><td></td><td>Xerox MFP</td></tr>
+<tr><td>SCX-4824</td><td>SCX-4x24</td><td>3.00.37<br>1.00.35 (driver2)</td><td></td><td>Samsung MFP<br>Xerox MFP</td></tr>
+<tr><td>SCX-4825</td><td>SCX-4x25</td><td>3.00.65<br>1.00.35 (driver2)</td><td></td><td>Xerox MFP</td></tr>
+<tr><td>SCX-4826</td><td>SCX-4x26</td><td>3.00.37<br>1.00.35 (driver2)</td><td></td><td>Samsung MFP</td></tr>
+<tr><td>SCX-4828</td><td>SCX-4x28</td><td>3.00.37<br>1.00.35 (driver2)</td><td></td><td>Samsung MFP<br>Xerox MFP</td></tr>
+<tr><td>SCX-4833<br>SCX-4835<br>SCX-5637<br>SCX-5639<br>SCX-5737<br>SCX-5739</td><td>SCX-483x</td><td>3.00.90<br>1.00.39 (driver2)</td><td></td><td>Xerox MFP</td></tr>
+<tr><td>SCX-5312</td><td>SCX-5312F</td><td>3.00.37</td><td>3.00.65</td><td>Samsung MFP</td></tr>
+<tr><td>SCX-5530</td><td>SCX-5x30</td><td>3.00.37</td><td></td><td>Samsung MFP</td></tr>
+<tr><td>SCX-5635</td><td>SCX-5635</td><td>3.00.37<br>1.00.35 (driver2)</td><td></td><td>Samsung MFP</td></tr>
+<tr><td>SCX-5835<br>SCX-5935</td><td>SCX-5835</td><td>3.00.37<br>1.00.35 (driver2)</td><td></td><td>Samsung MFP</td></tr>
+<tr><td>SCX-5835X<br>SCX-5935X</td><td>SCX-5835X</td><td>3.00.90<br>1.00.35 (driver2)</td><td></td><td></td></tr>
+<tr><td>SCX-6120<br>SCX-6220<br>SCX-6320</td><td>SCX-6x20<br>SCX-6x20_SPL</td><td>3.00.37<br>1.00.35 (driver2)</td><td></td><td>Samsung MFP</td></tr>
+<tr><td>SCX-6122<br>SCX-6322</td><td>SCX-6x22</td><td>3.00.37<br>1.00.35 (driver2)</td><td></td><td></td></tr>
+<tr><td>SCX-6345</td><td>SCX-6x45</td><td>3.00.37<br>1.00.39 (driver2)</td><td></td><td></td></tr>
+<tr><td>SCX-6545</td><td>SCX-6545<br>SCX-6545X</td><td>3.00.65<br>1.00.39 (driver2)</td><td></td><td>Samsung MFP</td></tr>
+<tr><td>SCX-6555</td><td>SCX-6x55<br>SCX-6x55X</td><td>3.00.37<br>1.00.39 (driver2)</td><td></td><td>Samsung MFP</td></tr>
+<tr><td>SCX-6811</td><td>SCX-681x</td><td>4.01.17<br>1.00.39 (driver2)</td><td></td><td></td></tr>
+<tr><td>SCX-8030<br>SCX-8040</td><td>SCX-8030</td><td>3.00.65<br>1.00.35 (driver2)</td><td></td><td></td></tr>
+<tr><td>SCX-8123<br>SCX-8128</td><td>SCX-8123</td><td>4.00.36<br>1.00.39 (driver2)</td><td></td><td></td></tr>
+<tr><td>SCX-8230<br>SCX-8240</td><td>SCX-8230</td><td>4.00.36<br>1.00.39 (driver2)</td><td></td><td></td></tr>
+<tr><td>SCX-8811<br>SCX-8812</td><td>SCX-881x</td><td>4.01.17<br>1.00.39 (driver2)</td><td></td><td></td></tr>
+<tr><td>SCX-8821<br>SCX-8822</td><td>SCX-882x</td><td>4.01.17<br>1.00.39 (driver2)</td><td></td><td></td></tr>
+<tr><td>SF-531P</td><td>SF-531P</td><td>3.00.37</td><td>4.00.39</td><td>Samsung MFP</td></tr>
+<tr><td>SF-760</td><td>SF-760</td><td>3.00.90<br>1.00.36 (driver2)</td><td></td><td></td></tr>
+</tbody></table>
+<h3>Non-Samsung Branded Printers (some multifunction)</h3>
+<table cellpadding="2" border="1">
+<tbody><tr><td>Printer(s)</td><td>PPD<br>(Printer Series)</td><td>Minimum Version</td><td>Maximum Version</td><td>Scanning Support</td></tr>
+<tr><td>Dell 1130</td><td>ML-2525</td><td>3.00.65</td><td></td><td>-</td></tr>
+<tr><td>Dell 1135</td><td>SCX-4623</td><td>3.00.65<br>4.00.36</td><td></td><td>Samsung MFP*<br>Xerox MFP*</td></tr>
+<tr><td>Dell 1133</td><td>SCX-4600</td><td>3.00.65<br>4.00.39</td><td></td><td>Samsung MFP<br>Xerox MFP*</td></tr>
+<tr><td>Dell B1160</td><td>ML-2160</td><td>3.00.90<br>1.00.36 (driver2)</td><td></td><td>-</td></tr>
+<tr><td>Dell B1165</td><td>SCX-3405</td><td>3.00.90<br>4.00.36</td><td></td><td>Xerox MFP</td></tr>
+<tr><td>Dell 1235</td><td>CLX-3170</td><td>3.00.37<br>4.01.17</td><td></td><td>Samsung MFP*<br>Xerox MFP*</td></tr>
+<tr><td>Dell 1600</td><td>SCX-4x20</td><td>3.00.37</td><td></td><td>Samsung MFP*</td></tr>
+<tr><td>Dell 1815</td><td>ML-3050</td><td>3.00.37<br>4.00.39</td><td></td><td>Samsung MFP<br>Xerox MFP</td></tr>
+<tr><td>Dell 2145</td><td>CLX-6200</td><td>3.00.37<br>4.00.36</td><td></td><td>Samsung MFP*</td></tr>
+<tr><td>Dell 2335</td><td>SCX-5x30</td><td>3.00.37<br>4.00.39</td><td></td><td>Samsung MFP</td></tr>
+<tr><td>Lexmark X215</td><td>SCX-4x16</td><td>3.00.37</td><td></td><td>Samsung MFP*<br>Xerox MFP*</td></tr>
+<tr><td>Toshiba eStudio 180<br>Toshiba eStudio 200</td><td>SCX-4200</td><td>3.00.37</td><td></td><td>Samsung MFP*<br>Xerox MFP*</td></tr>
+<tr><td>Xerox Phaser 3200</td><td>SCX-4725</td><td>3.00.37<br>3.00.90</td><td></td><td>Xerox MFP</td></tr>
+<tr><td>Xerox Phaser 6110</td><td>CLX-3160</td><td>3.00.37<br>4.00.39</td><td></td><td>Samsung MFP</td></tr>
+<tr><td>Xerox WorkCentre 3119</td><td>SCX-4200</td><td>3.00.37</td><td></td><td>Xerox MFP</td></tr>
+<tr><td>Xerox WorkCentre 3210</td><td>SCX-4x24</td><td>3.00.37<br>4.00.39</td><td></td><td>Samsung MFP<br>Xerox MFP*</td></tr>
+<tr><td>Xerox WorkCentre 3220</td><td>SCX-4x28</td><td>3.00.37<br>4.00.39</td><td></td><td>Samsung MFP<br>Xerox MFP*</td></tr>
+<tr><td>Xerox WorkCentre 4118</td><td>SCX-6x22</td><td>3.00.37<br>4.00.39</td><td></td><td>Samsung MFP</td></tr>
+<tr><td>Xerox WorkCentre 4150</td><td>SCX-6x45</td><td>3.00.37<br>3.00.65</td><td></td><td></td></tr>
+<tr><td>Xerox WorkCentre PE16</td><td>SCX-4x16</td><td>3.00.37</td><td></td><td>Samsung MFP*<br>Xerox MFP*</td></tr>
+<tr><td>Xerox WorkCentre PE114</td><td>SCX-4200</td><td>3.00.37</td><td></td><td>Samsung MFP*<br>Xerox MFP*</td></tr>
+<tr><td>Xerox WorkCentre PE120</td><td>SCX-4x20</td><td>3.00.37<br>4.00.39</td><td></td><td>Samsung MFP</td></tr>
+<tr><td>Xerox WorkCentre PE220</td><td>SCX-4x21</td><td>3.00.37<br>4.00.39</td><td></td><td>Samsung MFP<br>Xerox MFP*</td></tr>
+</tbody></table>
+* For these models, you will need to manually edit the configuration files to enable support with the Xerox MFP backend.  See <a href="https://www.bchemnet.com/suldr/scanning.html#3">the third option of scanning question 3</a>
+ for more information.  If you happen to have one of these printers and 
+want to share the identifier information, I can include it in the 
+package information.<br><br>
+Additional printers that appear to be re-branded Samsung, but that I 
+have not yet worked out a match for (due to lack of time - forum posts 
+to help are welcome!) include:
+<ul><li>Dell 1100, 1110, 2335, 2355, 5330, B1260, B1265</li>
+<li>Xerox Phaser 3115, 3116, 3317, 3120, 3121, 3122, 3124, 3130, 3130, 3150, 3155, 3160, 3200, 3420, 3425, 5500, 6100, 6110</li></ul>
+<br><br>
+<table width="80%" align="center">
+<tbody><tr>
+<td class="std" width="25%"><a href="https://www.bchemnet.com/suldr/repository.html">Repository Information</a></td>
+<td class="std" width="25%"><a href="https://www.bchemnet.com/suldr/legal.html">Legal</a></td>
+<td class="std" width="25%"><a href="https://www.bchemnet.com/suldr/contact.html">Contact</a></td>
+<td class="std" width="25%"><a href="https://www.bchemnet.com/suldr/alternatives.html">Alternative Drivers</a></td>
+</tr>
+</tbody></table>
+
+
+</body></html>

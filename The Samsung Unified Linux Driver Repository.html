@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0//en">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<link rel="stylesheet" type="text/css" href="The%20Samsung%20Unified%20Linux%20Driver%20Repository_files/suld_style.css">
+<title>The Samsung Unified Linux Driver Repository</title>
+</head>
+<body>
+<table width="80%" align="center">
+<tbody><tr>
+<td class="std" width="14%"><a href="https://www.bchemnet.com/suldr/index.html">SULDR</a></td>
+<td class="std" width="14%"><a href="https://www.bchemnet.com/suldr/forum/">Forums</a></td>
+<td class="std" width="14%"><a href="https://www.bchemnet.com/suldr/supported.html">Supported Printers</a></td>
+<td class="std" width="14%"><a href="https://www.bchemnet.com/suldr/printing.html">Printing Questions</a></td>
+<td class="std" width="14%"><a href="https://www.bchemnet.com/suldr/scanning.html">Scanning Questions</a></td>
+<td class="std" width="14%"><a href="https://www.bchemnet.com/suldr/questions.html">General Questions</a></td>
+<td class="std" width="16%"><a href="https://www.bchemnet.com/suldr/suld.html">Samsung Installer</a></td>
+</tr>
+</tbody></table>
+
+<h1>The Samsung Unified Linux Driver Repository</h1>
+
+This site provides an apt (.deb) repository for installing the Samsung 
+Unified Linux Driver in a more user-friendly and less problematic way 
+than downloading and installing directly from the Samsung website or 
+using the installer that ships with printers.  I simply repackage the 
+drivers that Samsung provides for free, and am not involved in any way 
+with development of them.  The drivers are binary-only (no source code 
+provided), and are only available for the Intel/AMD 32- and 64-bit 
+platforms with limited ARM support (Android, Raspberry Pi, etc. only if 
+"soft-float").
+
+<h2>News</h2>
+<h3>8 July 2018</h3>
+The SULDR (and all of bchemnet.com) will be shutting down in May 2019.  I
+ no longer have the time or ability to keep up with hosting it.  In 
+addition, it is unlikely that HP will be updating any drivers for the 
+Samsung-branded printers, and many drivers already fail to work 
+correctly with new Linux distributions.  Finally, for those with a 
+Samsung printer less than ~10 years old, the newest drivers available 
+for download from the HP website work just as well, if possibly not 
+quite as conveniently, as the repackaged versions here.<br><br>
+If anyone is interested in taking over some or all of this content, I am
+ willing to assist in that process.  Post in the forums expressing 
+interest.<br><br>
+
+<h3>12 May 2018</h3>
+Driver version 1.00.39 is available.  This is the last version prepared 
+by Samsung, and the first released by HP after the acquisition was 
+completed.<br><br>
+
+<h3>14 May 2016</h3>
+Updated key signing.  This will cause a keyring package to be installed,
+ and may cause a temporary warning about missing a signature until that 
+package is installed.  Instructions for setting up repository have been 
+modified to reflect the new approach.  The old samsungmfp-* packages 
+have also been removed.<br>
+<br>For older news, see below.<br><br>
+
+<h2>Setting Up the Repository</h2>
+<ol><li>If you performed any installations of the Unified Linux Driver 
+performed using the Samsung installer, these must be completely removed 
+before using the .debs in this repository.  See the <a href="https://www.bchemnet.com/suldr/suld.html">uninstallation information</a> for your version of the driver.</li>
+<li>Do one of the following to enable the repository (all are equivalent).
+<ul><li>Using the terminal:
+<ul><li>To /etc/apt/sources.list (root/sudo access required to edit), add the line:<br>
+deb http://www.bchemnet.com/suldr/ debian extra</li>
+<li>Enter the following in a terminal (as root):<br>
+bash -c 'echo "deb http://www.bchemnet.com/suldr/ debian extra" &gt;&gt; /etc/apt/sources.list'<br>
+Or if using sudo:<br>
+sudo bash -c 'echo "deb http://www.bchemnet.com/suldr/ debian extra" &gt;&gt; /etc/apt/sources.list'</li>
+</ul></li><li>Or using a graphical package manager (Synaptic, Ubuntu Software Center, etc.): 
+<ul><li>Edit the repository settings (e.g., Synpatic go to Settings -&gt; Repositories) to add:<br>
+deb http://www.bchemnet.com/suldr/ debian extra</li>
+<li>Or if multi-line input is required:<br>
+URI: http://www.bchemnet.com/suldr/<br>
+Distribution: debian<br>
+Section: extra</li>
+</ul></li></ul></li>
+<b>IMPORTANT:</b> The distribution and section must be entered <i>exactly</i>
+ as above.  Do not substitute the name of your own distribution, 
+translate the words, or use a default section - it won't work.  I get 
+hundreds of errors on the server each day from people who replace one or
+ more of the terms above (especially Ubuntu users using the code name of
+ their particular release).<br>
+<b>ALSO IMPORTANT (Ubuntu of any flavor, Mint based on Ubuntu, and other Ubuntu derivatives)</b>: Make sure that you add the repository as an "Additional Repository".  Do not add as a "PPA", that will not work.<br><br>
+<li>Refresh your repository listings:
+<ul><li>On a terminal (as root):<br>
+apt-get update<br>
+Or if using sudo:<br>
+sudo apt-get update</li>
+<li>Or in a graphical manager, click the reload or refresh button.</li>
+The suld-* packages should now appear in your list of available packages to install.
+You will likely see an error about unathenticated packages.</ul>
+</li><li>Install the repository key (last update: 24 Nov 2016) for the 
+repository by installing the suldr-keyring package.  This package will 
+also automatically be installed if you install any driver file.  Once it
+ is installed and you refresh your repository listings again, you will 
+not receive warnings about authentication.<br><br>
+If you are unable to install the keyring package this way due to authentication errors, <a href="http://www.bchemnet.com/suldr/pool/debian/extra/su/suldr-keyring_2_all.deb">download it directly</a> and then:
+<ul><li>On a terminal (as root):<br>
+dpkg -i suldr-keyring_2_all.deb<br>
+Or if using sudo:<br>
+sudo dpkg -i suldr-keyring_2_all.deb</li></ul>
+Then refresh the repository.</li></ol>
+
+<h2>Selecting Packages to Install</h2>
+This is a quick guide to get most people up and running.  If you need 
+additional information, look at the question pages linked at the top of 
+this page or the <a href="https://www.bchemnet.com/suldr/repository.html">repository information</a>.  <b>Note
+ to long-time users or those following older forum posts about packages:
+ the samsungmfp-* packages have been replaced by suld-* and are somewhat
+ simplified.</b>
+<ul><li>To install the driver for printing and scanning (if your printer
+ has a scanner), select one of the suld-driver-* packages to install.  
+Chances are that the latest package, <i>suld-driver2-1.00.39</i>, will work for you.  If you have an older printer or if you experience problems, <i>suld-driver-4.01.17</i> or <i>suld-driver-4.00.39</i> will probably work.  Check the <a href="https://www.bchemnet.com/suldr/supported.html">list of supported printers</a>
+ if the driver does not seem to be working for you.  Regardless of the 
+particular package installed, you will then need to set up the printer 
+using any printer management tool (the default one in your distribution,
+ the CUPS web interface, or the Samsung Configurator).</li>
+<li>If you want to use Samsung's graphical interface for managing the 
+printer/scanner (instead of the default printer and scanner management 
+tools in your distribution), you can install one of the 
+suld-configurator-* packages.  (If using the <i>driver2</i> packages, the Configurator is not available, and you will have to use a distribution tool.)  Most people will probably want <i>suld-configurator-2-qt4</i>.  However, if you want the slpr print interface or you want/need the Qt3 version, select the alternate appropriate version.</li>
+<li>If you want to use the slpr print interface of the Configurator, 
+which intercepts print jobs and prompts you for additional print 
+controls, install the <i>suld-slpr</i> package.  Note, however, that this requires installing either <i>suld-configurator-1-qt4</i> or <i>suld-configurator-1-qt3</i>, because the newer Configurator versions do not include this utility.</li>
+<li>If you have an old printer connected via a parallel port, you will need to install <i>suld-parallel</i>.
+  (Note that 4.00.39 and earlier drivers support parallel ports; 4.01.17
+ and all driver2 versions do not.)  Do not install this package if your 
+printer is connected via USB or a network connection.</li>
+<li>The <i>suld-printer-pdf-fix</i> and <i>suld-scanner-usblp-fix</i> 
+packages are possible workarounds if you encounter difficulties printing
+ pdf files or connecting to the scanner function of your printer when 
+using a USB cable, respectively.  Only install these after encountering 
+problems, as they may also cause other problems if they are not needed.</li>
+</ul>
+
+<h2>Acknowledgements</h2>
+Thanks to the many users, both in the original Ubuntu Forums thread and 
+the current forums, who have provided feedback and helped with testing 
+over the years.  I don't even know how many are still using this driver,
+ but thanks to all of you.  Particular users who have contributed 
+solutions that I've incorporated into the repository packages or 
+alternative solutions include hokiejp (eglibc 64-bit solution, for 
+network scanning); gaboro (eglibc 32-bit solution testing for the same 
+problem); Rodolfo Medina (ppd-only solution guide); tapanit (work-around
+ for scanning across complex networks); n3ck and ezekiel_quacks (USB 
+scanning work-around solutions); rlar (network scanning broadcast 
+solution); vyvee (usblp fix); b1b1 (pdf to ps printing problems fix).  
+Some of the solutions described in these web pages come from these 
+individuals and may point to their original posts, but even those who 
+solved problems that are now irrelevant have my thanks.  More recently, 
+angelnu and totally-king have developed the scripts in the suld-scantopc
+ packages.
+
+<br><br>
+
+<h2>Older News</h2>
+
+<h3>27 December 2015</h3>
+Driver version 1.00.37 (December) is posted as a Samsung installer but 
+not packaged in repository.  The only differences compared to 1.00.36 
+are 4 ppd files for obscure printers.<br>
+
+<h3>25 December 2015</h3>
+Release of packages for the 1.00.36 (October) drivers.  The binaries are
+ unchanged, the only actual changes are to the ppd files, so 
+driver2-1.00.35 and driver2-1.00.36 are effectively identical.  Also 
+made a few other changes to add some additional printer support and 
+hopefully fix some miscellaneous problems a few people have reported.
+
+<h3>2 May 2015</h3>
+Release of packages for the 1.00.35 (March) drivers.  This drops support
+ for ARM and provides a huge number of updates to ppd files, including 
+to several printers that had not been well supported for the past 
+several versions.  Actual binary changes appear to be minor.
+
+<br><br>
+
+<h3>29 November 2014</h3>
+Release of packages for the 1.00.27 (August) and 1.00.29 (November) 
+drivers.  These appear to be very similar to the 1.00.21 driver, but 
+there are subtle (and entirely untested by me) differences.  I also 
+resolved some issues with the 1.00.21 for a small number of printers 
+impacted by the binary changes from 1.00.06 to 1.00.21; Samsung also 
+fixed this issue with the 1.00.27 release.
+
+<br><br>
+
+<h3>4 May 2014</h3>
+Release of packages for the new 1.00.21 driver.  This is a minor update 
+to the 1.00.06 series (see below) that adds support for a few additional
+ printers, but also seems to change some of the binaries significantly. 
+ I have no idea if it is actually an improvement.
+
+<br><br>
+
+<h3>6 October 2013</h3>
+Release of packages for the new 1.00.06 driver.  These packages are 
+marked as "driver2" to address the confusion associated with Samsung 
+re-starting their version numbering.  These packages should be treated 
+as experimental at this stage - they have had precisely zero in-house 
+testing, because I do not have a system to do more than ensure they 
+install.  The Configurator is no longer shipped by Samsung, and is not 
+compatible with this version.  So anyone who regularly uses the 
+Configurator should not upgrade.  Parallel port support has also been 
+removed, and support for a few printers (beyond those already dropped in
+ 4.01.17) was removed.  The latest printers released from Samsung are 
+supported by this driver.  There is also limited support for the arm 
+architecture.  Specifically, the armel/soft float architecture.  The arm
+ drivers do not yet work with armhf/hard float.  The new drivers work 
+quite differently, and I will be updating the support content on this 
+site as time allows to reflect the changes.  As usual, post to the 
+forums to share any experiences.
+
+<br><br>
+Note that the 1.00.06 driver installer from Samsung seems to work fine, 
+and there is currently no seriously compelling reasons to use this 
+repository instead of Samsung's installer (unless you want an alternate 
+driver version or an easy install/uninstall system).
+
+<br><br>
+
+<h3>15 May 2013</h3>
+Addition of the <i>suld-scantopc</i> and <i>suld-scantopc-gui</i> 
+packages for enabling the push-to-scan feature of at least some Samsung 
+multifunction printers.  Consider these packages experimental, and share
+ any issues in <a href="http://www.bchemnet.com/suldr/forum/index.php?topic=73.0">this thread</a>.  
+
+<br><br>
+
+I have also completed a migration to a new web host, without any 
+apparent major issues.  But do let me know through the forums if 
+something seems broken.
+
+<br><br>
+
+<h3>3 May 2013</h3>
+Major website update and repository overhaul, as well as release of 
+packages for the 4.01.17 driver.  In particular, note that many packages
+ (especially packages related to scanning) have been incorporated 
+directly into the driver package, simplifying installation.  <a href="https://www.bchemnet.com/suldr/repository.html#rename">Click here</a> if more information is needed on changes to the repository.  Also new is a list of <a href="https://www.bchemnet.com/suldr/supported.html">printers supported by different driver versions</a>. 
+
+<br><br>
+
+<h3>29 September 2012</h3>
+Driver packages updated.  Driver versions 4.00.36 and 4.00.39 are now available.
+
+<br><br>
+
+<h3>10 June 2012</h3>
+I have just launched <a href="https://www.bchemnet.com/suldr/forum/">new forums</a> on this website to provide a mechanism to ask for help, provide feedback, etc.  These will gradually replace the original <a href="http://ubuntuforums.org/showthread.php?t=341621">Ubuntu Forums thread on this topic</a>
+ that was started way back in January 2007.  (Update 27 May: the 
+Ubuntuforums thread is now closed.)  When you register, you will be 
+asked to report a Linux version and printer type; this is to simplify my
+ responses to threads, so I can at-a-glance remember the parameters for 
+someone I am replying to.
+
+<br><br>
+
+
+
+<table width="80%" align="center">
+<tbody><tr>
+<td class="std" width="25%"><a href="https://www.bchemnet.com/suldr/repository.html">Repository Information</a></td>
+<td class="std" width="25%"><a href="https://www.bchemnet.com/suldr/legal.html">Legal</a></td>
+<td class="std" width="25%"><a href="https://www.bchemnet.com/suldr/contact.html">Contact</a></td>
+<td class="std" width="25%"><a href="https://www.bchemnet.com/suldr/alternatives.html">Alternative Drivers</a></td>
+</tr>
+</tbody></table>
+<br>
+
+Updated on 8 July 2018<br>
+
+
+</body></html>

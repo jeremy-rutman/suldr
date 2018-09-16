@@ -1,0 +1,253 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0//en">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<link rel="stylesheet" type="text/css" href="The%20Samsung%20Unified%20Linux%20Driver%20Repository%20-%20Troubleshooting%20-%20Printing_files/suld_style.css">
+<title>The Samsung Unified Linux Driver Repository - Troubleshooting - Printing</title>
+</head>
+<body>
+<table width="80%" align="center">
+<tbody><tr>
+<td class="std" width="14%"><a href="https://www.bchemnet.com/suldr/index.html">SULDR</a></td>
+<td class="std" width="14%"><a href="https://www.bchemnet.com/suldr/forum/">Forums</a></td>
+<td class="std" width="14%"><a href="https://www.bchemnet.com/suldr/supported.html">Supported Printers</a></td>
+<td class="std" width="14%"><a href="https://www.bchemnet.com/suldr/printing.html">Printing Questions</a></td>
+<td class="std" width="14%"><a href="https://www.bchemnet.com/suldr/scanning.html">Scanning Questions</a></td>
+<td class="std" width="14%"><a href="https://www.bchemnet.com/suldr/questions.html">General Questions</a></td>
+<td class="std" width="16%"><a href="https://www.bchemnet.com/suldr/suld.html">Samsung Installer</a></td>
+</tr>
+</tbody></table>
+
+<h1>Common Issues Specifically Related to Printing</h1>
+
+<a href="https://www.bchemnet.com/suldr/printing.html#0">P0. HELP!  I Updated the Packages and Now I Can't Print!</a><br>
+<a href="https://www.bchemnet.com/suldr/printing.html#1">P1. The Packages Are Installed but No Printer Is Configured</a><br>
+<a href="https://www.bchemnet.com/suldr/printing.html#2">P2. Strange Text/Graphics Printing Artifact or Lockups With Certain Files (Particularly PDF)</a><br>
+<a href="https://www.bchemnet.com/suldr/printing.html#3">P3. I Am Unable to Print to a Network Printer Using IPP</a><br>
+<a href="https://www.bchemnet.com/suldr/printing.html#4">P4. The Color Balance Is Wrong</a><br>
+<a href="https://www.bchemnet.com/suldr/printing.html#5">P5. My Printer Seems to Be Configured but I Can't Print</a><br>
+<a href="https://www.bchemnet.com/suldr/printing.html#6">P6. How Do I Know I'm Using the Samsung Driver?</a><br>
+<a href="https://www.bchemnet.com/suldr/printing.html#7">P7. My USB Printer Is Inconsistent or Fails to Print and I'm Using an Old Distribution</a><br>
+<a href="https://www.bchemnet.com/suldr/printing.html#8">P8. My USB Printer Is Inconsistent or Fails to Print and I'm Using the <i>suld-scanner-usblp-fix</i> Package</a><br>
+<a href="https://www.bchemnet.com/suldr/printing.html#9">P9. Print Jobs Seem to Vanish and I'm Running SELinux</a><br>
+<a href="https://www.bchemnet.com/suldr/printing.html#10">P10. My CJX-xxxx Printer Does Not Print</a><br>
+<a href="https://www.bchemnet.com/suldr/printing.html#11">P11. I Updated CUPS and Now I Can't Print</a><br>
+<a href="https://www.bchemnet.com/suldr/printing.html#12">P12. Print Jobs Seem to Vanish and/or the Printer Just Blinks, and I'm Not Running SELinux</a><br>
+<a href="https://www.bchemnet.com/suldr/printing.html#13">P13. I Am Unable to Add a Printer Using the Configurator</a><br>
+<a href="https://www.bchemnet.com/suldr/printing.html#14">P14. I Am Unable to Add a Printer Using Any Interface</a><br>
+<a href="https://www.bchemnet.com/suldr/printing.html#15">P15. Printing Causes rastertospl Errors</a><br>
+
+<h3 id="0">P0. HELP!  I Updated the Packages and Now I Can't Print!</h3>
+If you upgraded from a version lower than 4.01.17 to 4.01.17 or greater,
+ you may need to uninstall and re-install your printer.  Otherwise, CUPS
+ may not recognize the new ppd file and associated changes to the 
+drivers (especially file names).  Doing so will solve errors reported by
+ CUPS for files now found.  In other rare cases, something may not go 
+smoothly in an upgrade process.  You can try uninstall all your packages
+ from this repository and then reinstalling the ones you still need.  
+Otherwise, post to <a href="https://www.bchemnet.com/suldr/forum/">the forums</a> for help.
+
+<h3 id="1">P1. The Packages Are Installed but No Printer Is Configured</h3>
+The packages do not autodetect printers, you will need to add it 
+manually (using normal desktop environment tools to manage printing).  
+In most modern distributions, the printer will configure itself once you
+ initiate the printer setup process.
+
+<h3 id="2">P2. Strange Text/Graphics Printing Artifact or Lockups With Certain Files (Particularly PDF)</h3>
+This can be caused by several issues, but they essentially all relate to
+ the generation of the postscript or SPL(-C) output going to the 
+printer.  There are several possible solutions, but it is difficult to 
+know in advance which is the best.
+<ul><li>Installing the <i>suld-printer-pdf-fix</i> package may solve 
+your problem if you meet the conditions described for it (but is not 
+compatible with the driver2 packages). Manifestations that this may 
+correct are an inability to print some or all pdf files while non-pdf 
+files work correctly, extremely slow printing, or the printer refusing 
+to print more than one document without being reset.  This may also 
+address issues of "damaged" pdf output with missing characters, etc., 
+but only in specific situations.  The package installs a work-around for
+ the pdf/postscript converts by using cairo to generate the postscript 
+or SPL-C output needed for the Samsung printers.  Print quality may 
+suffer, and this package could potentially break your ability to print 
+anything at all, and it may interfere with printing to non-Samsung 
+printers while installed.  It is a hack, and so changes to several 
+unrelated packages (CUPS, poppler, ghostscript) could invalidate the 
+fix.  On the other hand, this is probably the easiest fix to try and 
+solves several problems when it works, assuming you have the necessary 
+dependencies installed (Ubuntu 12.04, Debian 7.0 Wheezy, or later).  
+This fix is most likely to help with SPL(-C) printers, but may also work
+ with postscript printers.  Credit for developing the fix goes to <a href="http://ubuntuforums.org/showthread.php?p=11965390&amp;postcount=952">b1b1 in the Ubuntu Forums</a>.</li>
+<li>Another approach similar to the above that may be more general is given in <a href="http://www.bchemnet.com/suldr/forum/index.php?topic=5.0">in this thread by b1b1</a>.
+  Although possibly more broadly applicable, this solution is not easily
+ packaged and so (at least for now) must be applied manually.</li>
+<li>Try a different driver version (install a different <i>suld-driver-*</i>
+ package).  Although most printers work as well or better with the 
+latest driver as one of the earlier ones, there are specific cases where
+ an earlier driver may be superior.  This is why the earlier versions 
+are still available.</li>
+<li>Changing the printer drive to a related model sometimes helps, 
+although it may introduce other problems, and it is not always clear 
+what a "related" model is (usually similar model number, but not 
+always).  This requires some trial and error, and the resulting 
+printouts are often of mediocre quality.  This approach is best tried 
+when large/color prints lock up the printer, but simple prints work 
+fine.</li>
+<li>It may be worth exploring alternative approaches (check the <a href="https://www.bchemnet.com/suldr/alternatives.html">alternatives page</a>).
+  In some cases, the generic printer option works surprisingly well to 
+resolve occasional, small artifacts with printing from a pdf (especially
+ with postscript printers).</li>
+<li>Particularly for problems printing with LibreOffice, modifying the behavior of lpadmin <a href="http://www.bchemnet.com/suldr/forum/index.php?topic=63">as described here</a> may solve several printing issues.</li>
+<li>If all else fails, post to <a href="https://www.bchemnet.com/suldr/forum/">the forums</a> in case someone else has solved the problem for your particular model.</li></ul>
+
+<h3 id="3">P3. I am Unable to Print to a Network Printer Using IPP</h3>
+Many Samsung printers do not properly support IPP.  If your printer is 
+affected, you will need to connect to your printer using LPD or 
+raw/socket protocols.  A (possibly incomplete) list of affected printers
+ is: CLP-500, CLP-510, CLP-550, CLP-600, CLP-650, MFP-560, MFP-750, 
+ML-1450, ML-1510, ML-1520, ML-1610, ML-1710, ML-1740, ML-1750, ML-2010, 
+ML-2150, ML-2150, ML-2250, ML-2550S, ML-2550, ML-2560, ML-3560, ML-6060,
+ ML-7300, SCX-4100, SCX-4200, SCX-4x16, SCX-4x20, SCX-4x21, SCX-6x20.  
+Most of these printers are relatively old (first released in 2006 or 
+earlier), but whether the problem has been fixed in later printers or 
+the list is simply out of date, I don't know.<br><br>
+
+Another type of IPP problem occurs in Ubuntu 12.04 with CUPS 1.5.2, and 
+possibly other distributions, with printers not in the above list.  Some
+ users apparently get it to work by updating to CUPS 1.5.3 or later 
+releases.  At least in Ubuntu, an "ipp14" protocol has been introduced 
+in addition to "ipp", to enable older ipp support for printers that do 
+not work with the new ipp.  See <a href="https://bugs.launchpad.net/ubuntu/+source/cups/+bug/973270">this thread</a> and in particular <a href="https://bugs.launchpad.net/ubuntu/+source/cups/+bug/973270/comments/61">this comment</a>
+ for more details and a ppa until official packages are released.  I do 
+not know if these fixes will be incorporated back upstream into the CUPS
+ project and propogate to other distributions.  As of CUPS 1.5.3, 
+another workaround is <a href="http://www.bchemnet.com/suldr/forum/index.php?topic=147">described here</a> to activate and use the ipp14 protocol.
+
+<h3 id="4">P4. The Color Balance Is Wrong</h3>
+I don't actually know what causes this for some people with certain 
+printers.  However, in at least some cases, using the driver as 
+installed by this repository seems to work best.  In other cases, you 
+might find better results with a direct install of the Samsung driver, 
+the Foomatic driver, or a CUPS postscript driver.  I suspect it has 
+something to do with exactly which libraries are being invoked, but 
+beyond that it is still a mystery.
+
+<h3 id="5">P5. My Printer Seems to Be Configured but I Can't Print</h3>
+In some cases, what appears to be a properly installed printer will 
+still fail to print (sometimes, but not always, when the printer is 
+automatically installed by either Foomatic or the Samsung utilities).  
+In that case, use the Configurator or a standard CUPS tool to check the 
+printer properties, ensuring that the correct driver is actually 
+associated with the printer, that the printer is "enabled", and that the
+ printer is "accepting jobs" (the specific method for doing these varies
+ a bit, but the names should apply).  If all else fails, simply delete 
+the printer and add it as a new printer again, which will force a reset 
+of all those settings.  
+
+<h3 id="6">P6. How Do I Know I'm Using the Samsung Driver?</h3>
+Go to the printer properties (there are various ways of doing this) and 
+look at the Make/Model.  The Samsung drivers all have names in the 
+format Samsung <specific model="" number="" or="" range="">Series 
+&lt;(PS) or (SPL) or (SPL-C)&gt;.  In contrast, the Foomatic drivers all
+ contain either "Foomatic" or "foo2qpdl" in the name, and SpliX drivers 
+usually contain "splix" somewhere.
+
+<h3 id="7">P7. My USB Printer Is Inconsistent or Fails to Print and I'm Using an Old Distribution</h3>
+Occasionally and only in distributions released prior to 2008 (Debian 
+4.x (Etch), Ubuntu 7.10 (Feisty) and earlier), the USB support will be 
+quirky or broken using these packages.  I don't know why this is, but 
+there isn't a good solution due to limitations in the way the Samsung 
+drivers themselves work.  Your best bet is to update your distribution.
+
+<h3 id="8">P8. My USB Printer Is Inconsistent or Fails to Print and I'm Using the <i>suld-scanner-usblp-fix</i> Package</h3>
+This is a potential side effect of the usblp fix.  In some cases, you 
+are stuck with being able to scan or print from the device, but not 
+being able to access both functions together.
+
+<h3 id="9">P9. Print Jobs Seem to Vanish and I'm Running SELinux</h3>
+You may need to inform SELinux about the driver installation and correct
+ file permissions, especially if you have installed the driver using the
+ Samsung installer instead of the repository.  At least with Fedora, 
+running the following (as root/sudo) appears to enable printing:<br>
+restorecon -R -v /usr/lib64<br>
+restorecon -R -v /usr/lib<br>
+restorecon -R -v /usr/share<br>
+Another solution may be to apply the SELinux policy file that Samsung 
+has created for the 4.00.36 and 4.00.39 drivers, available <a href="https://www.bchemnet.com/suldr/uld_policy.te">here</a>.
+  If you know what to do with a file like this, or know how to use other
+ SELinux tools to authorize the mfp backend to talk to CUPS, great.  If 
+not, I cannot help you and you should investigate other resources for 
+help (or post to the forum).
+
+<h3 id="10">P10. My CJX-xxxx Printer Does Not Print</h3>
+Do not install these packages or the Unified Driver at all, it will not work.  Instead, install the <i>printer-driver-c2esp package</i> (older distributions instead use the <i>c2esp</i>
+ package) if it is not already present and set up your printer as a 
+Kodak ESP printer.  This works for at least the CJX-1000, CJX-1050W, and
+ CJX-2000FW.  If that package is not available for distribution, you can
+ get it <a href="http://cupsdriverkodak.sourceforge.net/">here (I am not affiliated with it)</a>. 
+
+<h3 id="11">P11. I Updated CUPS and Now I Can't Print</h3>
+CUPS 1.5.3, such as in Ubuntu 12.04.1 and Debian Wheezy, does not get 
+along well with the 3.00.xx drivers.  Update to a 4.xx.xx version.  If 
+you are using a current version, post to the forums.
+
+<h3 id="12">P12. Print Jobs Seem to Vanish and/or the Printer Just Blinks, and I'm Not Running SELinux</h3>
+For at least some printer models, forcing a test page to print (via a 
+tool like system-config-printer) and/or manually printing a text file 
+seems to clear the issue from the printer.  To manually print a text 
+file, issue the command:<br>
+lp -d printer-name a-text-file<br>
+where printer-name is the installed printer name and a-text-file is some simple text file.  <a href="http://www.bchemnet.com/suldr/forum/index.php?topic=59.0">See this post</a>
+ for a slightly more detailed example; the approach has been reported to
+ work by several users.  Some applications also apparently have trouble 
+with certain network setups: see <a href="http://www.bchemnet.com/suldr/forum/index.php?topic=19.msg939#msg939">this post</a> to determine if this situation applies to you.
+
+<h3 id="13">P13. I Am Unable to Add a Printer Using the Configurator</h3>
+The simplest solution is to just not use the Configurator to add the 
+printer.  Use one of the default system tools or the CUPS web interface 
+instead.  However, depending on the exact behavior, there may be another
+ solution:
+<ul>
+<li>If the add printer dialog crashes after you click "Next" when it 
+first pops up, the problem is a conflict or error in some versions of 
+libmfp.  This occurs with the driver versions 4.00.36 and 4.00.39, but 
+seems not to be a problem with earlier or later versions.  So if you can
+ switch driver versions, the add printer routine will probably work.</li>
+<li>If the add printer dialog seems to work, but no printers are found, 
+there is no known simple fix.  If you also cannot detect the printer 
+using other interfaces, then the issue is hardware, permissions, or the 
+connection between the computer and printer.  If the other interfaces 
+work, just use those.</li>
+</ul>
+
+<h3 id="14">P14. I Am Unable to Add a Printer Using Any Interface</h3>
+The first thing to try is unplugging and replugging the cable, to clear 
+any static building or other random interference.  Then, if the printer 
+is connected by USB, try a different USB port.  If shift cables does not
+ help, it is probably an issue with the printer itself or the USB 
+libraries in your distribution.  Detection that the printer exists at 
+all, especially when connected by USB, is not a process that involves 
+the printer driver itself.
+
+<h3 id="15">P15. Printing Causes rastertospl Errors</h3>
+This may be due to hard-coded references to having this file in 
+/opt/smfp-common/printer/lib.  This could occur in driver 4.01.17 and 
+all driver2 versions.  A possible solution is to create a symlink: ln -s
+ /usr/share/cups/filter/rasterspl 
+/opt/smfp-common/printer/lib/rastertospl (might need sudo and/or 
+creating the opt directories first).  If you encounter this and it 
+solves the problem, please post to the forum, as this is a rare error 
+that has been hard to isolate because it is specific to certain printers
+ using certain settings.
+  
+<br><br>
+
+<table width="80%" align="center">
+<tbody><tr>
+<td class="std" width="25%"><a href="https://www.bchemnet.com/suldr/repository.html">Repository Information</a></td>
+<td class="std" width="25%"><a href="https://www.bchemnet.com/suldr/legal.html">Legal</a></td>
+<td class="std" width="25%"><a href="https://www.bchemnet.com/suldr/contact.html">Contact</a></td>
+<td class="std" width="25%"><a href="https://www.bchemnet.com/suldr/alternatives.html">Alternative Drivers</a></td>
+</tr>
+</tbody></table>
+
+
+</specific></body></html>

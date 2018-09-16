@@ -1,0 +1,375 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0//en">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<link rel="stylesheet" type="text/css" href="The%20Samsung%20Unified%20Linux%20Driver%20Repository%20-%20Troubleshooting%20-%20General_files/suld_style.css">
+<title>The Samsung Unified Linux Driver Repository - Troubleshooting - General</title>
+</head>
+<body>
+<table width="80%" align="center">
+<tbody><tr>
+<td class="std" width="14%"><a href="https://www.bchemnet.com/suldr/index.html">SULDR</a></td>
+<td class="std" width="14%"><a href="https://www.bchemnet.com/suldr/forum/">Forums</a></td>
+<td class="std" width="14%"><a href="https://www.bchemnet.com/suldr/supported.html">Supported Printers</a></td>
+<td class="std" width="14%"><a href="https://www.bchemnet.com/suldr/printing.html">Printing Questions</a></td>
+<td class="std" width="14%"><a href="https://www.bchemnet.com/suldr/scanning.html">Scanning Questions</a></td>
+<td class="std" width="14%"><a href="https://www.bchemnet.com/suldr/questions.html">General Questions</a></td>
+<td class="std" width="16%"><a href="https://www.bchemnet.com/suldr/suld.html">Samsung Installer</a></td>
+</tr>
+</tbody></table>
+
+<h1>Common Questions Not Specifically Related to Troubleshooting Printing or Scanning</h1>
+
+<a href="https://www.bchemnet.com/suldr/questions.html#0">Q0. HELP!  I Updated the Packages and Now Something Doesn't Work!</a><br>
+<a href="https://www.bchemnet.com/suldr/questions.html#1">Q1. Why Don't You Provide Source Code?  Why Isn't the Driver Better?  Can You Fix a Bug?  Who Do I Complain To?</a><br>
+<a href="https://www.bchemnet.com/suldr/questions.html#2">Q2. My Printer Seems to Be Configured but I Can't Scan, Print, or Launch the Configurator</a><br>
+<a href="https://www.bchemnet.com/suldr/questions.html#3">Q3. Will You Provide Packages for the Samsung Smart Panel and Printer Settings Utility?</a><br>
+<a href="https://www.bchemnet.com/suldr/questions.html#4">Q4. Can You Provide Packages for Additional Architectures (Beyond i386, amd64, and Limited arm)?</a><br> 
+<a href="https://www.bchemnet.com/suldr/questions.html#5">Q5. Will These Drivers/Packages Work with Non-Samsung Printers?</a><br>
+<a href="https://www.bchemnet.com/suldr/questions.html#6">Q6. Why Do I Get an Error About the cupsys-common Package?</a><br>
+<a href="https://www.bchemnet.com/suldr/questions.html#7">Q7. Why Do You Store Files in /opt/?</a><br>
+<a href="https://www.bchemnet.com/suldr/questions.html#8">Q8. What Do All the Binary Components Do?</a><br>
+<a href="https://www.bchemnet.com/suldr/questions.html#9">Q9. Why Are These Pages So Simple?  Can't You Make Them More Exciting?</a><br>
+<a href="https://www.bchemnet.com/suldr/questions.html#10">Q10. How Do I Set the Default Paper Size?</a><br>
+<a href="https://www.bchemnet.com/suldr/questions.html#11">Q11. What's Up With All the Transitional Packages?</a><br>
+<a href="https://www.bchemnet.com/suldr/questions.html#12">Q12. What's Going On With All the Strange Version Numbers?</a><br>
+<a href="https://www.bchemnet.com/suldr/questions.html#13">Q13. How I Do I Ensure Future Updates Don't Break Anything?</a><br>
+<a href="https://www.bchemnet.com/suldr/questions.html#14">Q14. Why Can't I Install the Qt3 Configurator Packages?</a><br>
+<a href="https://www.bchemnet.com/suldr/questions.html#15">Q15. Which Printer Models Are Supported?</a><br>
+<a href="https://www.bchemnet.com/suldr/questions.html#16">Q16. Why Do I See an Error About cupsys When Starting the Configurator in a Terminal?</a><br>
+<a href="https://www.bchemnet.com/suldr/questions.html#17">Q17. Does the Unified Driver Work With the CJX- Line of Multifunction Inkjet Printers?</a><br>
+<a href="https://www.bchemnet.com/suldr/questions.html#18">Q18. Can I Use This Repository If I'm Not Using Debian (or Derivatives Such as Ubuntu, Mint, etc.)?</a><br>
+<a href="https://www.bchemnet.com/suldr/questions.html#19">Q19.  What's With the .app Naming of the Configurator Binaries?</a><br>
+<a href="https://www.bchemnet.com/suldr/questions.html#20">Q20.  How Can I Stop Getting This GPG Error?</a><br>
+<a href="https://www.bchemnet.com/suldr/questions.html#21">Q21.  Why Is Forum Registration So Difficult?</a><br>
+<a href="https://www.bchemnet.com/suldr/questions.html#22">Q22.  Why Are There So Many Different Driver Versions?</a><br>
+<a href="https://www.bchemnet.com/suldr/questions.html#23">Q23.  Should I Update to the Newest Driver Version?</a><br>
+<a href="https://www.bchemnet.com/suldr/questions.html#24">Q24.  Which Package Should I Try Changing/Updating for a Particular Error?</a><br>
+<a href="https://www.bchemnet.com/suldr/questions.html#25">Q25.  How Do I Fix apt-get Timeouts?</a><br>
+
+<h3 id="0">Q0. HELP!  I Updated the Packages and Now Something Doesn't Work!</h3>
+On rare occassions, something may not go smoothly in an upgrade process.
+  You can try uninstall all your packages from this repository and then 
+reinstalling the ones you still need.  Otherwise, post to <a href="https://www.bchemnet.com/suldr/forum/">the forums</a> for help.
+
+<h3 id="1">Q1. Why Don't You Provide Source Code?  Why Isn't the Driver Better?  Can You Fix a Bug?  Who Do I Complain To?</h3>
+Basically, my role is to provide a public service to address many of the
+ installation bugs and conflicts that the lousy Samsung installer and 
+driver create.  I have no say in anything about the driver itself, which
+ is a closed-source binary.  I have no connection to Samsung, and have 
+never once received a response from them regarding various issues I've 
+pointed out to them.  However, given that thousands of people are using 
+this repository, and presumably many more Linux users exist, it seems 
+that there should be motivation for Samsung to fix the problems: update 
+the driver to use a modern libc6, USB system, libtiff, libpng, and 
+libnetsnmp; stop overwriting files or installing them in ways that 
+prevent clean removal; stop using setuid and requiring root access; 
+avoid static linking to libc; and anything else you may think to point 
+out.  The only long-term solution is for everyone to contact Samsung 
+directly and ask them to solve these issues (it is not important if you 
+understand any or all of them; if you want to learn more, there's plenty
+ on this website, <a href="https://www.bchemnet.com/suldr/forum/">the forums</a>, and <a href="http://ubuntuforums.org/showthread.php?t=341621">the original (and now locked for being obselete) support thread</a>.  Maybe they could even distribute proper .deb (and .rpm, etc.) packages themselves, and render my entire repository obsolete.
+
+<h3 id="2">Q2. My Printer Seems to Be Configured but I Can't Scan, Print, or Launch the Configurator</h3>
+There is a problem with the libpng12/libpng3 packages (v1.2.44-1); an 
+essential link was not included.  If there is not a more recent version 
+of the package available through your distribution (Debian 6.0 Squeeze 
+and Ubuntu 11.04 Natty are affected, but earlier and later releases are 
+not), install the libpng12-dev package to get the correct link.  
+Alternatively, you can try:
+<ul><li>sudo ln -s /lib/libpng12.so.0 /usr/lib/libpng.so.3</li></ul>
+to create the correct link.  (libpng12.so.0 may also be in /lib32/ or 
+/lib/x86_64-linux-gnu/ instead of /lib/ if your systems is configured 
+for multiarch.)  If none of these solutions fixes the problem (or the 
+link already exists), post to <a href="https://www.bchemnet.com/suldr/forum/">the forums</a> asking for help.  This problem will manifest itself as being unable to print, scan, or launch the Samsung Configurator.
+
+<h3 id="3">Q3. Will You Provide Packages for the Samsung Smart Panel and Printer Settings Utility?</h3>
+No.  Certain Samsung printers have the option of using the Samsung Smart
+ Panel &amp; Printer Settings Utility.  I have not packaged these and 
+you should download them directly from Samsung if you wish to use them. 
+ However, read the following before you do so.
+<br><br>
+The packages in this repository are compatible with the Samsung utility 
+packages.  These utilities appear to only come in Qt3 compiled versions.
+  However, you should note that as of May 2012, all versions of these 
+utilities still require the use of setuid root (i.e., they run as root 
+regardless of who executes them) and so represent a security risk.  In 
+addition, by default the installer will create the /opt/Samsung/... 
+directories with world-write access, another security risk; you can 
+solve this by a "find . -type d -exec chmod 755 {} \;" in the "cdroot" 
+folder before installing to reset folder permissions.  Non-executable 
+files are also marked as executable by default in /opt/.../bin and 
+/opt/.../share/, a small but real security risk.  The way the installers
+ deal with menu entries, menu directories, and autostart is also highly 
+non-standard, but does not appear to be anything other than sloppy.  
+Some versions of both utilities also install local (in /opt) copies of 
+the Qt3 libraries, which could potentially cause conflicts but is 
+unlikely to be a significant issue.  Finally, because one of the two 
+Smart Panel executables is 32-bit only, the installer tries to copy both
+ the 32-bit and 64-bit libstdc++5 libraries onto the system on 64-bit 
+installations; this is a problem on Debian-based systems, because the 
+method used to check for those files fails due to the symlinking of 
+/usr/lib64 to /usr/lib, and so only one of the two libraries will be 
+installed (I don't know the consequences of this, but any resulting 
+instability/bugs probably only affects the Smart Panel).
+<br><br>
+In general, I discourage you from installing these tools for the 
+security reasons above.  Please do not ask me to package either; I am 
+unable to test them with my printer and unwilling to distribute a 
+package that requires setuid, especially when unable to test it myself. 
+ In addition, both utilities come in a wide variety of versions on the 
+Samsung website, and the printers supported by individual versions 
+varies, so I would have to package multiple versions of each for 
+specific printers.  (It is possible that the multiple versioning issue 
+is just sloppiness on Samsung's part, but since I am unable to test this
+ I cannot resolve the issue.)
+
+<h3 id="4">Q4. Can You Provide Packages for Additional Architectures (Beyond i386, amd64, and Limited arm)?</h3>
+ 
+No.  The Samsung Unified Linux Driver is only available for i386 and 
+amd64 architectures (most Intel/AMD based 32-bit and 64-bit systems); 
+because the driver is not open source, I have no control over this 
+limitation.  So systems built on a different chip (all Raspberry Pi 
+computers and other Arm-based systems such as most smart phones) simply 
+will not work with these drivers except for driver2 files, v1.00.06 to 
+1.00.29, which do support armel (soft float arm) and so will work with 
+some arm-based devices.  However, Samsung then ended support for arm 
+entirely.  The drivers will not work with any armhf device, such as the 
+Raspberry Pi 2, and as of 2015 other new arm-based devices are generally
+ armhf so also won't work.
+
+<h3 id="5">Q5. Will These Drivers/Packages Work with Non-Samsung Printers?</h3>
+In some cases.  See the <a href="https://www.bchemnet.com/suldr/supported.html">list of supported printers</a> (which is probably incomplete), and a partial list can be seen on <a href="http://splix.ap2c.org/">the SpliX website</a>.
+
+<h3 id="6">Q6. Why Do I Get an Error About the cupsys-common Package?</h3>
+If you start the Configurator from the command line, you will likely see
+ an error about the cupsys-common package not being found (unless your 
+distro is fairly old).  This package was renamed in 2008 (in Debian), 
+and Samsung has only caught up with the version 4 drivers in mid-2011.  
+The error is meaningless, as the correct CUPS packages are installed if 
+you can print.
+
+<h3 id="7">Q7. Why Do You Store Files in /opt/?</h3>
+Some of the file paths for the Samsung utilities are hard-coded, and so 
+for the various pieces to work, some files must be located in particular
+ directories off the /opt/ stem.  There is nothing I can do about this. 
+ Every file that can be moved out of there without breaking something 
+has been relocated.  The driver2 packages do not make use of /opt/ at 
+all.
+
+<h3 id="8">Q8. What Do All the Binary Components Do?</h3>
+Note that the v2 drivers have a few extra pieces in /opt and a few 
+missing pieces in /usr, but I won't discuss those.  I am also including 
+only those files actually included in one or more repository packages.  
+Not all files are included in all driver releases.
+<ul>
+<li>/opt/Samsung/mfp/bin/Configurator - the Configurator program</li>
+<li>/opt/Samsung/mfp/bin/ImageManager - scanning and image controls</li>
+<li>/opt/Samsung/mfp/bin/netdiscovery - to autodetect network printers</li>
+<li>/opt/Samsung/mfp/bin/printeradd - the Samsung add printer utility</li>
+<li>/opt/Samsung/mfp/bin/printertest - the Samsung utility to print test pages</li>
+<li>/opt/Samsung/mfp/bin/sshv - the Help interface</li>
+<li>/opt/Samsung/mfp/bin/slpr - the Samsung lpr interface</li>
+<li>/opt/Samsung/mfp/bin/smfpscan - scanning utility</li>
+<li>/opt/Samsung/mfp/lib/* - necessary libraries for the Configurator and ImageManager programs</li>
+<li>/opt/Samsung/mfp/plugins/* - necessary libraries for the Configurator and ImageManager programs</li>
+<li>/opt/Samsung/mfp/share/utils/* - a Java applet that has an unknown 
+fuction, and I don't believe to be essential; maybe network related?</li>
+<li>/usr/sbin/smfpd - the daemon to interface with the parallel port</li>
+<li>/usr/bin/local/lpr (/usr/bin/lpr in the original installer) - a link
+ to override the normal lpr by pointing to /opt/Samsung/mfp/bin/slpr 
+after moving the original lpr to lpr.orig</li>
+<li>/usr/lib/libmfp.so* - the main library for printing and scanning</li>
+<li>/usr/lib/sane/libsane-smfp.* - the scanning library for talking to sane</li>
+<li>/usr/lib/cups/backend/mfp - the interface to CUPS for printing</li>
+<li>/usr/lib/cups/backend/smfpnetdiscovery - to autodetect network printers (driver2)</li>
+<li>/usr/lib/cups/filter/rastertosamsung* - utilities to render printing output</li>
+<li>/usr/lib/cups/filter/rastertoslp* - utilities to render printing output</li>
+<li>/usr/lib/cups/filter/libscms* - libraries for using the ppd/cms files provided by Samsung</li>
+<li>/usr/lib/cups/filter/ps* - postscript libraries for reading cms files and converting formats to render printing output</li>
+<li>/usr/lib/cups/filter/smfpautoconf - autoconfiguration/detection utility</li>
+<li>/usr/lib/cups/filter/smfppreload - unknown</li>
+</ul>
+
+<h3 id="9">Q9. Why Are These Pages So Simple?  Can't You Make Them More Exciting?</h3>
+Because I'm short on time and this project is strictly volunteer.  These
+ pages get the job done.  I was also introduced to web design way back 
+in the Mosiac days, and still dislike most of the "new" flashy garbage 
+that most "modern" web pages are making use of. 
+
+<h3 id="10">Q10. How Do I Set the Default Paper Size?</h3>
+Independent of anything to do with the Samsung Unified Linux Driver, you
+ can change the default paper size for all applications this way: edit 
+(as root) /etc/papersize to say "letter" or "A4" or whatever your 
+preference is.  There are also various graphical interfaces for CUPS, 
+foomatic, etc.
+
+<h3 id="11">Q11. What's Up With All the Transitional Packages?</h3>
+This repository is a work in progress, and responds to arbitrary changes
+ made by Samsung.  I believe the package design is now fairly stable, 
+but it may change again in the future and has changed multiple times in 
+the past.  The result is considerable re-naming of packages (or even 
+whether particular packages are necessary).  All the transitional 
+packages are leftovers to assist people updating to new packages, and 
+all may (and should) be removed.  The complexity of the dependencies 
+amongst all the packages is usually an advantage, although occasionally 
+it confuses apt during an update.
+
+<h3 id="12">Q12. What's Going On With All the Strange Version Numbers?</h3>
+Samsung is not very consistent with versioning.  For example, some 
+versions of the 3.00.65 and 3.00.90 driver were also listed as version 
+1.14, and 1.15, respectively, while the first versions of the 4.00.35 
+driver were also listed as version 1.01.  Moreover, identical files are 
+sometimes released as different versions, and occasionally files marked 
+as the same version are actually different.  Finally, even within a 
+particular release, different components receive different version 
+numbers.  For example, the 4.00.35 driver for the SCX-3405W is version 
+4.00.35 for "Common" files, 4.00.25 for the "Printer", and 4.00.14 for 
+the "Scanner".  These can be viewed in the "About" window of the 
+Configurator, along with a 2001 copyright date (for files all actually 
+compiled in 2005 through the present).  I have generally adopted the 
+version advertised on the Samsung website (typically the "Common" 
+version) as the version I report for drivers and ppd packages, as that 
+appears to be the most meaningful to distinguish between different 
+Samsung releases.  I use the "Common" version for Configurator versions.
+  Everything else gets arbitrary version numbers.
+<br><br>
+This got even worse with the August 2013 driver release, when Samsung 
+re-started numbering.  So the latest drivers were 1.00.06, and I created
+ "driver2" to distinguish these and indicate that they were more recent 
+despite the lower version number.  Fortunately, Samsung also radically 
+simplified the driver system and eliminated the Configurator, so with 
+driver2 packages there is only a single version.
+
+<h3 id="13">Q13. How I Do I Ensure Future Updates Don't Break Anything?</h3>
+The simplest way is to never update anything.  Obviously there are 
+limits to this approach, but there are two methods that you can use with
+ this repository.  The simplest is to just disable the repository 
+(comment out or delete the repository lines added when configuring the 
+repository) after you get everything working, and only come back if you 
+have problems in the future.  However, with the 2013 restructuring of 
+the repository, this issue should be less common unless something in a 
+system update requires you to update to a new driver version.
+
+<h3 id="14">Q14. Why Can't I Install the Qt3 Configurator Packages?</h3>
+As of summer 2012, Debian is in the process of removing all Qt3 support 
+files; at some point this will trickle down into Ubuntu, Mint, etc.  
+This means that the libqt3-mt package may not be available.  There is no
+ advantage to the Qt3 version of the Configurator over the Qt4 version, 
+so I suggest you install one of the Qt4 Configurator packages instead 
+(e.g., <i>suld-configurator-2-qt4</i>).  However, because in some cases 
+the Qt4 versions do not work reliably, I have included the necessary Qt3
+ libraries in my repository.
+
+<h3 id="15">Q15. Which Printer Models Are Supported?</h3>
+<a href="https://www.bchemnet.com/suldr/supported.html">Click here</a>.
+
+<h3 id="16">Q16. Why Do I See an Error About cupsys When Starting the Configurator in a Terminal?</h3>
+All the "cupsys" packages were renamed to "cups" by Debian with the CUPS
+ 1.4 release in 2008.  However, the Configurator still does a check for 
+the existence of "cupsys" when it starts, and reports that the package 
+is not found.  This error has no meaning and does not indicate a real 
+problem.
+
+<h3 id="17">Q17. Does the Unified Driver Work With the CJX- Line of Multifunction Inkjet Printers?</h3>
+In spring 2012, Samsung introduced the CJX inkjet multifunction 
+printers.  The initial models are the CJX-1000, CJX-1050W, and 
+CJX-2000FW, sold in Germany with plans to expand throughout Europe.  
+These printers are actually re-branded Kodak printers, and so the 
+Unified driver does not work with them.  And Kodak does not support 
+Linux.  However, there are alternative solutions that do not involve the
+ Samsung Unified driver: see <a href="https://www.bchemnet.com/suldr/printing.html#10">here for printing</a> and <a href="https://www.bchemnet.com/suldr/scanning.html#8">here for scanning</a>.
+
+<h3 id="18">Q18. Can I Use This Repository If I'm Not Using Debian (or Derivatives Such as Ubuntu, Mint, etc.)?</h3>
+Possibly.  At least a few Gentoo and Slackware users have done so.  Some
+ Fedora users have reported mixed success with alien to convert the 
+packages to .rpm files.  Some versions of alien seem to have trouble 
+converting the symlinks in the <i>suld-driver-*</i> packages (although 
+the Debian version I have works okay).  In addition, alien does not 
+convert installer scripts, so restarting services (cups) will not take 
+place, and boot scripts (for <i>suld-scanner-usblp-fix</i> and <i>suld-parallel</i>) will have to be activated manually.  There may also be issues with <i>suld-driver-common-1</i>
+ depending on debconf, which naturally does not exist in Fedora.  
+Although I would be happy to host a yum (rpm) repository in paralle with
+ the existing apt (deb) one, I simply do not have the time to learn the 
+ins and outs of .spec files and yum necessary to create one.  For anyone
+ with some experience building rpms, converting the debs to rpms and 
+building a repository may not be a big deal in.  If you are interested 
+in working on this (in particular, generating the necessary .spec 
+files), contact me via the forums.
+
+<h3 id="19">Q19. What's With the .app Naming of the Configurator Binaries?</h3>
+Beginning with the 4.00.36 release, Samsung started using wrappers 
+around the Configurator binaries in /opt/Samsung/mfp/bin/ (including 
+Configurator, ImageManager, etc.) to provide log information in /tmp/.  
+In addition, the wrapper sets some additional library load directories; 
+that is actually irrelevant with these packages, but does not do any 
+harm so I have not modified it.
+
+<h3 id="20">Q20. How Can I Stop Getting This GPG Error?</h3>
+First, make sure that you have installed the GPG key.  If not, you will 
+receive warnings about unathenticated packages.  If you are receiving 
+messages about invalid signatures (something like in <a href="http://www.bchemnet.com/suldr/forum/index.php?topic=67">this thread</a>),
+ then there may be an error in your apt cache (possibly due to trying to
+ refresh package lists when this server was temporarily unresponsive).  
+Follow the steps in <a href="http://www.bchemnet.com/suldr/forum/index.php?topic=67.msg273#msg273">this post</a> to reset the cache.
+
+<h3 id="21">Q21. Why Is Forum Registration So Difficult?</h3>
+Because I don't have time to deal with spam.  So you'll have to jump 
+through a few hoops to initially register, sorry.  I keep the settings 
+at the lowest annoyance threshold that also keeps out the spambots, so 
+I'm not wasting the little time I have to spend on this project dealing 
+with them.  One side effect is that registering with a throw-away 
+(temporary) email address probably won't work, as the registration link 
+will probably not arrive before the temporary email address expires.  
+Using a real email address also allows you to receive notices of 
+responses to your posts.  Those are optional, and the only traffic you 
+should receive after registering. 
+
+<h3 id="22">Q22.  Why Are There So Many Different Driver Versions?</h3>
+Because different drivers work better for some people, with some 
+printers, under some conditions, with some distributions.  Basically, 
+it's all complicated, and if it wasn't really necessary for some people 
+to have access to older drivers, I wouldn't continue to provide them.  <a href="https://www.bchemnet.com/suldr/supported.html">See the list of supported printers</a>
+ to determine which driver versions are appropriate for your printer.  
+In general, I would suggest choosing the "last updated" version, not 
+necessarily the newest driver.  However, as Linux continues to evolve 
+over time, older versions will gradually become non-functional for 
+reasons having nothing to do directly with the printer driver itself.  
+In general, you can probably assume that a particular driver version is 
+usable in a distribution released up to 3-5 years after the original 
+release date of the driver itself (but this is only an average).
+
+<h3 id="23">Q23.  Should I Update to the Newest Driver Version?</h3>
+Probably not.  If you have a version of the driver that is working for 
+you, I suggest you stick with it.  When something in a new distribution 
+release breaks something I can fix with an older driver, I will do so 
+and release an update to that driver version.  Otherwise, the only time 
+you need to consider moving to a newer driver is if the driver 
+completely stops working and I can't release an update to fix it (or you
+ don't want to wait), or if you buy a newer printer.  You can also check
+ the <a href="https://www.bchemnet.com/suldr/supported.html">list of supported printers</a> to see if the latest driver had any impact on your printer, in which case you might want to consider switching.
+
+<h3 id="24">Q24.  Which Package Should I Try Changing/Updating for a Particular Error?</h3>
+You can get a good idea of what package a file resides in by its location (folder/directory), by reading <a href="https://www.bchemnet.com/suldr/repository.html">the package descriptions</a>.
+  A more direct way is use "dpkg -S /path/to/file" in a terminal, which 
+will tell you exactly which package a file belongs to.  If the file is 
+in a driver package, switching driver versions might help.  Similarly 
+for Configurator packages.  If the file is in some other package, you 
+should post to the forums with your problem after ensuring you are using
+ the latest version of the package.
+
+<h3 id="25">Q25.  How Do I Fix apt-get Timeouts?</h3>
+In rare cases, the internationalization files seem to be corrupted.  Look at <a href="http://www.bchemnet.com/suldr/forum/index.php?topic=155.msg895#msg895">this post</a> for a solution.
+
+<br><br>
+
+<table width="80%" align="center">
+<tbody><tr>
+<td class="std" width="25%"><a href="https://www.bchemnet.com/suldr/repository.html">Repository Information</a></td>
+<td class="std" width="25%"><a href="https://www.bchemnet.com/suldr/legal.html">Legal</a></td>
+<td class="std" width="25%"><a href="https://www.bchemnet.com/suldr/contact.html">Contact</a></td>
+<td class="std" width="25%"><a href="https://www.bchemnet.com/suldr/alternatives.html">Alternative Drivers</a></td>
+</tr>
+</tbody></table>
+
+
+</body></html>
